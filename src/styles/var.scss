@@ -1,0 +1,139 @@
+/* layout
+-------------------------- */
+$body-width-min: 1280px;
+$main-content-width: 1200px;
+$nav-main-padding: 30px;
+$nav-main-height: 80px;
+
+
+/* Transition
+-------------------------- */
+$all-transition: all .3s cubic-bezier(.645,.045,.355,1);
+$fade-transition: opacity 300ms cubic-bezier(0.23, 1, 0.32, 1);
+$fade-linear-transition: opacity 200ms linear;
+$md-fade-transition: transform 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms, opacity 300ms cubic-bezier(0.23, 1, 0.32, 1) 100ms;
+$border-transition-base: border-color .2s cubic-bezier(.645,.045,.355,1);
+$color-transition-base: color .2s cubic-bezier(.645,.045,.355,1);
+
+/* Colors
+-------------------------- */
+$color-font-light: #c4c4c4;
+$border-color: #E1E4E8;
+
+$color-white: #fff;
+$color-black: #000;
+$color-light-black: #08153F;
+$color-base-blue: #0033CC;
+$color-light-blue: #285AFE;
+$color-base-grey: #999;
+$color-darker-grey: #666;
+$color-font-grey: #333;
+$color-light-grey: #D2D2D2;
+$color-lighter-grey: #F1F5F5;
+$color-bg-grey: #EDEFF4;
+
+$color-primary: $color-base-blue;
+
+$logo-active-weixin: #42d100;
+$logo-active-zhihu: #3388f3;
+$logo-active-weibo: #f44b58;
+
+$color-gradient-bg: linear-gradient(-135deg, #0033CC 0%, #003EF6 100%);
+
+/* Disable base
+-------------------------- */
+$disabled-fill-base: $color-white;
+$disabled-color-base: $color-base-grey;
+$disabled-border-base: $color-light-grey;
+
+/* Link
+-------------------------- */
+$link-color: $color-black;
+$link-active-color: $color-base-blue;
+
+/* Border
+-------------------------- */
+$border-width-base: 1px;
+$border-style-base: solid;
+$border-color-base: $border-color;
+$border-color-hover: #c4c4c4;
+$border-base: $border-width-base $border-style-base $border-color-base;
+$border-radius-base: 2px;
+$border-radius-small: 2px;
+$border-radius-circle: 100%;
+
+/* Box-shadow
+-------------------------- */
+$box-shadow-base: 0 1px 8px 0 rgba(0,0,0,0.10);;
+$box-shadow-dark: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .12);
+
+/* Fill
+-------------------------- */
+$fill-base: $color-white;
+
+/* Font
+-------------------------- */
+$font-size-base: 14px;
+$font-color-base: $color-black;
+$font-color-disabled-base: $disabled-border-base;
+$font-size-s: 12px;
+
+/* Size
+-------------------------- */
+$size-base: 14px;
+
+/* z-index
+-------------------------- */
+$index-normal: 1;
+$index-top: 1000;
+$index-popper: 2000;
+
+/* Icon
+-------------------------- */
+$icon-color: #666;
+
+
+/* Button
+-------------------------- */
+$button-font-size: 14px;
+$button-border-radius: 100px;
+$button-padding-vertical: 9px;
+$button-padding-horizontal: 26px;
+
+$button-large-font-size: 16px;
+$button-large-padding-vertical: 11px;
+$button-large-padding-horizontal: 19px;
+
+$button-small-font-size: 12px;
+$button-small-padding-vertical: 7px;
+$button-small-padding-horizontal: 9px;
+
+$button-mini-font-size: 12px;
+$button-mini-padding-vertical: 4px;
+$button-mini-padding-horizontal: 4px;
+
+$button-default-color: $color-primary;
+$button-default-fill: $color-white;
+$button-default-border: $color-primary;
+
+$button-disabled-color: $color-white;
+
+$button-hover-tint-percent: 20%;
+$button-active-shade-percent: 10%;
+
+/* Card
+--------------------------*/
+$card-border-color: $disabled-border-base;
+$card-border-radius: 4px;
+$card-padding: 20px;
+
+/* 首页
+-------------------------- */
+$font-size-menu: 46px;
+$font-size-menu-sub: 28px;
+$font-size-title: 60px;
+$font-size-title-sub: 28px;
+$font-size-content: 16px;
+$font-size-btn: 16px;
+
+$font-family: Helvetica, Tahoma, Arial, "Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", STXihei, STHeiti, Heiti, SimSun, sans-serif;
