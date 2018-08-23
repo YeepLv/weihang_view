@@ -1,0 +1,98 @@
+<template>
+  <div class="videowrap" @mouseover="maskShow = true" @mouseout="maskShow = false">
+    <div class="video-container" @click="videoShow = true;currentVideoSrc = src">
+      <video ref="videoRef" :src="src" v-show="false"></video>
+      <div ref="poster"></div>
+      <svg class="icon play-btn" v-show="maskShow" aria-hidden="true">
+        <use xlink:href="#icon-bofangjian-hover"></use>
+      </svg>
+      <svg class="icon play-btn" v-show="!maskShow" aria-hidden="true">
+        <use xlink:href="#icon-bofangjian-moren"></use>
+      </svg>
+      <div class="mask" v-show="maskShow" :style="{ borderRadius: isIndex ? '190px' : '20px'}"></div>
+    </div>
+    <p class="video-desc">{{ desc }}</p>
+    <y-video v-if="videoShow" :current-video-src="currentVideoSrc" @close="videoShow = false"></y-video>
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['src', 'desc', 'isIndex'],
+  name: 'YVideowrap',
+  mounted () {
+    const video = this.$refs['videoRef']
+    video.addEventListener('loadeddata', this.captureImage)
+  },
+  methods: {
+    captureImage () {
+      const video = this.$refs['videoRef']
+      const canvas = document.createElement('canvas')
+      canvas.width = 460
+      canvas.height = 260
+      canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height)
+
+      var img = document.createElement('img')
+      img.src = canvas.toDataURL('image/png')
+      if (this.isIndex) {
+        img.style.borderRadius = '190px'
+      } else {
+        img.style.borderRadius = '20px'
+      }
+      this.$refs['poster'].appendChild(img)
+    }
+  },
+  data () {
+    return {
+      maskShow: false,
+      videoShow: false,
+      currentVideoSrc: ''
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.videowrap {
+  width: 460px;
+  height: 260px;
+  display: inline-block;
+  margin-bottom: 110px;
+
+  .video-container {
+    position: relative;
+  }
+
+  video {
+    width: 460px;
+    height: 260px;
+  }
+  .play-btn {
+    top: 100px;
+    left: 200px;
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    z-index: 2;
+    cursor: pointer;
+  }
+  .video-desc {
+    font-family: MicrosoftYaHei;
+    font-size: 18px;
+    color: #000000;
+    text-align: left;
+    margin-top: 30px;
+    line-height: 32px;
+  }
+  .mask {
+    width: 100%;
+    height: 260px;
+    background-image: linear-gradient(-135deg, #0A96F0 0%, #00DCF0 100%);
+    opacity: .7;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+</style>
