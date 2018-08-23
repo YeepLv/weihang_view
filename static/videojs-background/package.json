@@ -1,0 +1,42 @@
+{
+  "name": "videojs-background",
+  "version": "1.0.6",
+  "author": "Matthew Harrison-Jones",
+  "description": "Full background video for video.js",
+  "license": "MIT",
+  "keywords": [
+    "videojs",
+    "html5",
+    "flash",
+    "video",
+    "player",
+    "background"
+  ],
+  "dependencies": {
+    "video.js": "^5.0.2"
+  },
+  "devDependencies": {
+    "grunt-contrib-clean": "^0.4",
+    "grunt-contrib-concat": "^0.3",
+    "grunt-contrib-jshint": "^0.6",
+    "grunt-contrib-qunit": "^0.2",
+    "grunt-contrib-uglify": "^0.2",
+    "grunt-contrib-watch": "^0.4",
+    "qunitjs": "^1.12"
+  },
+  "main": "./lib/videojs-Background.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthojo/videojs-Background.git"
+  },
+  "bugs": {
+    "url": "https://github.com/matthojo/videojs-Background/issues"
+  },
+  "homepage": "https://github.com/matthojo/videojs-Background#readme"
+}
