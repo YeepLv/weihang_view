@@ -1,0 +1,80 @@
+<template>
+  <div class="about">
+    <div class="about__wrap f-content__wrap">
+      <div class="about__desc">
+        <h2>部分合作学校</h2>
+        <p>文案</p>
+        <img src="@/assets/about-school.png" style="margin-top: 40px;">
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      isMobile: this.$store.state.isMobile
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+@import "~@/styles/var";
+@import "~@/styles/mixin";
+
+.about {
+  min-height: 1065px;
+  color: $color-white;
+  padding: 150px 0;
+  background-image: url(~@/assets/about.png);
+  background-size: cover;
+  background-position: center center;
+  font-family: $font-family;
+  color: #000000;
+  &__desc {
+    h2 {
+      margin-bottom: 60px;
+      font-size: 60px;
+    }
+    p {
+      line-height: 30px;
+      font-size: $font-size-content;
+      color: #666666;
+    }
+    a {
+      margin-top: 60px;
+      border-width: 2px;
+      &:hover {
+        background-color: transparent;
+        color: $color-white;
+        border-color: $color-white;
+      }
+    }
+  }
+
+  &__wrap {
+    width: 960px;
+    text-align: center;
+  }
+}
+#mobile {
+  .about {
+    padding: 3.666667rem 0 320px;
+    text-align: center;
+    // background-image: url(~@/assets/mobile/map.png);
+    background-size: cover;
+    a {
+      margin-top: 2rem;
+    }
+    h2 {
+      margin-bottom: 2.666667rem;
+    }
+    p {
+      line-height: 1.5;
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
+</style>
