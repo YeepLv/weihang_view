@@ -42,19 +42,7 @@ export default {
           icon: '#icon-jujiaojiaoyu',
           title: '聚焦教育',
           desc: '文案',
-          logoUrls: [{
-            url: zsyh
-          }, {
-            url: ftzq
-          }, {
-            url: nfjj
-          }, {
-            url: cjzq
-          }, {
-            url: ygbx
-          }, {
-            url: fql
-          }]
+          logoUrls: []
         },
         service: {
           url: '/solution/service',
@@ -63,17 +51,7 @@ export default {
           icon: '#icon-jujiaokeji',
           title: '聚焦科技',
           desc: '文案',
-          logoUrls: [{
-            url: wdjt
-          }, {
-            url: xm
-          }, {
-            url: gmdq
-          }, {
-            url: bb
-          }, {
-            url: jp
-          }]
+          logoUrls: []
         }
       },
       currentSec: ''
