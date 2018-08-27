@@ -4,12 +4,12 @@
       <div class="y-footer__about" v-if="!isMobile">
         <div class="y-footer__upper">
           <ul>
-            <li>
+            <!-- <li>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-footer-dianhua"></use>
               </svg>
               0755-26656317
-            </li>
+            </li> -->
             <!-- <li>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-footer-shouji"></use>
