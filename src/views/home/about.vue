@@ -4,7 +4,7 @@
       <div class="about__desc">
         <h2>部分合作学校</h2>
         <p>文案</p>
-        <img src="@/assets/about-school.png" style="margin-top: 40px;">
+        <img src="@/assets/about-school.jpg" style="margin-top: 40px;">
       </div>
     </div>
   </div>

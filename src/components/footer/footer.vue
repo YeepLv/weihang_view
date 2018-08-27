@@ -10,12 +10,12 @@
               </svg>
               0755-26656317
             </li>
-            <li>
+            <!-- <li>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-footer-shouji"></use>
               </svg>
               13632813578 (林经理)
-            </li>
+            </li> -->
             <li>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-footer-youxiang"></use>

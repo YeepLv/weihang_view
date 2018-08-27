@@ -59,8 +59,8 @@ module.exports = {
 
     // Paths 编译产出的路径(加上yicall 前缀)
     assetsRoot: path.resolve(__dirname, '../dist/weihang'),
-    assetsSubDirectory: '',
-    assetsPublicPath: '',
+    assetsSubDirectory: 'static',
+    assetsPublicPath: '/',
 
     /**
      * Source Maps

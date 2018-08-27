@@ -3,14 +3,16 @@
     <div class="m-section__wrap f-content__wrap">
       <div class="m-section__main">
         <h2>{{data.name}}</h2>
-        <div class="m-section__pic pic-container" style="height: 40vh">
-          <img :src="data.url" alt="">
-        </div>
-        <div class="m-section__content">
-          <p class="title">应用功能</p>
-          <p class="feature" v-for="(de, idx) in data.desc" :key="idx">
-            {{ de }}
-          </p>
+        <div>
+          <div class="m-section__pic pic-container">
+            <img :src="data.url" alt="">
+          </div>
+          <div class="m-section__content">
+            <p class="title">应用功能</p>
+            <p class="feature" v-for="(de, idx) in data.desc" :key="idx">
+              {{ de }}
+            </p>
+          </div>
         </div>
       </div>
     </div>
@@ -52,20 +54,23 @@
     margin-right: 8px;
   }
   &__wrap {
-    height: 70vh;
-    line-height: 70vh;
+    // height: 70vh;
+    // line-height: 70vh;
+    height: 720px;
+    line-height: 720px;
   }
   &__main {
     display: block;
     margin: 0 auto;
-    vertical-align: middle;
-    width: 1000px;
+    width: 960px;
     padding: 20px 0px;
+    height: 720px;
   }
   &__pic, &__content {
-    display: inline-block;
+    // display: inline-block;
     // vertical-align: middle;
     font-size: 0;
+    float: right;
   }
   &__pic {
     float: left;
@@ -77,7 +82,6 @@
     }
   }
   &__content {
-    margin-left: 100px;
 
     .title {
       font-family: MicrosoftYaHei;
@@ -93,7 +97,7 @@
       padding-right: 0;
     }
     .m-section__content {
-      // width: 50%;
+      float: left;
     }
   }
 }
