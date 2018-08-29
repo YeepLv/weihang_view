@@ -19,11 +19,11 @@ export default {
   name: 'YPost',
   props: ['post'],
   methods: {
-    closeDialog() {
+    closeDialog () {
       this.$emit('closeArticle')
     }
   },
-  data() {
+  data () {
     return {
       moment
     }

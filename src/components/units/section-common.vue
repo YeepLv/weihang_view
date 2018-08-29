@@ -13,6 +13,7 @@
               {{ de }}
             </p>
           </div>
+          <div style="clear: both"></div>
         </div>
       </div>
     </div>
@@ -29,8 +30,10 @@
 @import "~@/styles/mixin";
 
 .m-section {
+  .m-section__wrap {
+    line-height: normal;
+  }
   h2 {
-    font-family: MicrosoftYaHei;
     font-size: 48px;
     color: #000000;
     text-align: center;
@@ -56,32 +59,30 @@
   &__wrap {
     // height: 70vh;
     // line-height: 70vh;
-    height: 720px;
+    // height: 720px;
     line-height: 720px;
   }
   &__main {
     display: block;
     margin: 0 auto;
     width: 960px;
-    padding: 20px 0px;
-    height: 720px;
+    padding: 20px 0px 80px 0px;
+    // height: 720px;
   }
   &__pic, &__content {
     // display: inline-block;
     // vertical-align: middle;
     font-size: 0;
-    float: right;
+    float: left;
   }
   &__pic {
     float: left;
-    width: 45%;
     img {
       width: 100%;
-      // vertical-align: middle;
-      margin-top: 10px;
     }
   }
   &__content {
+    max-width: 380px;
 
     .title {
       font-family: MicrosoftYaHei;
@@ -115,7 +116,6 @@
     &__main {
       display: block;
       margin: 0 auto;
-      vertical-align: middle;
       width: 100%;
     }
     &__wrap {

@@ -221,7 +221,7 @@ export default {
     swiper,
     swiperSlide
   },
-  data() {
+  data () {
     return {
       currentIndex: 0,
       swiperOption: {
@@ -240,11 +240,11 @@ export default {
     changeTab (val) {
       this.currentIndex = val
     },
-    navClick(idx) {
+    navClick (idx) {
       this.currentIndex = idx
       this.$refs['banner'].activeNum = idx
     }
-  },
+  }
 }
 </script>
 

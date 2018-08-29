@@ -19,11 +19,11 @@ export default {
   name: 'YArticle',
   props: ['article'],
   methods: {
-    closeDialog() {
+    closeDialog () {
       this.$emit('closeArticle')
     }
   },
-  data() {
+  data () {
     return {
       moment
     }

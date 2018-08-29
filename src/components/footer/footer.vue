@@ -129,7 +129,6 @@
     }
     &__lower {
       @include clearfix;
-      font-family: MicrosoftYaHei;
       font-size: 12px;
       color: #FFFFFF;
       text-align: center;
@@ -140,7 +139,6 @@
         float: left;
       }
       li {
-        font-family: MicrosoftYaHei;
         font-size: 14px;
         color: #FFFFFF;
         line-height: 30px;

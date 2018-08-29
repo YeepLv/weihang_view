@@ -51,7 +51,7 @@ export default {
     vertical-align: middle;
     font-weight: normal;
     width: 100%;
-    font-family: SourceHanSansCN-Bold;
+    // font-family: SourceHanSansCN-Bold;
   }
   .nav__menu {
     position: absolute;
@@ -59,7 +59,7 @@ export default {
     color: #FFFFFF;
     text-align: center;
     width: 100%;
-    font-family: MicrosoftYaHei;
+    // font-family: MicrosoftYaHei;
     font-size: 16px;
     line-height: 20px;
 

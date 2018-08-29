@@ -68,7 +68,7 @@
 import moment from 'moment'
 
 export default {
-  mounted() {
+  mounted () {
     this.$http.get('/api/website/article', {
       params: {
         pageNo: 1,
@@ -102,7 +102,7 @@ export default {
     }
   },
   watch: {
-    openedIndex(val) {
+    openedIndex (val) {
       if (val === 0) {
         this.footerType = 2
       } else {
@@ -111,7 +111,7 @@ export default {
     }
   },
   methods: {
-    navClick(idx) {
+    navClick (idx) {
       this.openedIndex = idx
     }
   }

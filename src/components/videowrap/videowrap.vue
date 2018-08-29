@@ -78,7 +78,6 @@ export default {
     cursor: pointer;
   }
   .video-desc {
-    font-family: MicrosoftYaHei;
     font-size: 18px;
     color: #000000;
     text-align: left;

@@ -278,6 +278,13 @@ export default {
   watch: {
     '$route' (to, from) {
       this.featherIndex = 0
+    },
+    openedIndex1 (val) {
+      if (val === 2) {
+        this.footerType = 1
+      } else {
+        this.footerType = 0
+      }
     }
   },
   computed: {
@@ -289,18 +296,9 @@ export default {
     changeTab (val) {
       this.currentIndex = val
     },
-    navClick(idx) {
+    navClick (idx) {
       this.currentIndex = idx
       this.$refs['banner'].activeNum = idx
-    }
-  },
-  watch: {
-    openedIndex1(val) {
-      if (val === 2) {
-        this.footerType = 1
-      } else {
-        this.footerType = 0
-      }
     }
   }
 }

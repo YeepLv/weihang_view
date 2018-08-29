@@ -38,8 +38,7 @@
       }
     },
     methods: {
-      test(navIdx) {
-        console.log(2222)
+      test (navIdx) {
         this.$emit('navClick', navIdx)
       },
       /**
@@ -125,7 +124,6 @@
 }
 
 .y-menu {
-  font-family: 'SourceHanSansCN Light';
   padding: 0 $nav-main-padding;
   position: absolute;
   top: 0px;
@@ -139,7 +137,6 @@
     margin: auto;
   }
   &__text {
-    font-family: MicrosoftYaHei;
     font-size: 16px;
     position: relative;
     margin-right: 40px;

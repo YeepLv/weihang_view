@@ -24,7 +24,7 @@
 <script>
 
 export default {
-  mounted() {
+  mounted () {
     this.$http.get('/api/website/video', {
       params: {
         pageNo: 1,

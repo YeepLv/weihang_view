@@ -37,7 +37,7 @@ export default {
       secsMap: {
         finance: {
           url: '/solution/finance',
-          bgUrl: this.$store.state.isMobile ? bgMobile : bgFinance,
+          bgUrl: bgFinance,
           name: 'finance',
           icon: '#icon-jujiaojiaoyu',
           title: '聚焦教育',
