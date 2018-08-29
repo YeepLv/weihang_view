@@ -300,6 +300,11 @@ export default {
       this.currentIndex = idx
       this.$refs['banner'].activeNum = idx
     }
+  },
+  mounted () {
+    if (this.$route.params.index) {
+      this.openedIndex1 = this.$route.params.index
+    }
   }
 }
 </script>

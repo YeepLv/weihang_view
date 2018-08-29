@@ -15,28 +15,28 @@
         <img v-if="!isMobile" src="@/assets/banner5.gif" style="height: 100%;width: 100%">
         <div class="welcome-desc">
           <h2>玮航教育五朵云解决方案</h2>
-          <a href="javascript:void(0)" class="u-btn__white">查看详情</a>
+          <a href="javascript:void(0)" class="u-btn__white" @click="viewDetails('wdy')">查看详情</a>
         </div>
       </swiper-slide>
       <swiper-slide>
         <img v-if="!isMobile" src="@/assets/banner2.png" style="height: 100%;width: 100%">
         <div class="welcome-desc">
           <h2>教育精准扶贫——双师教学</h2>
-          <a href="javascript:void(0)" class="u-btn__white">查看详情</a>
+          <a href="javascript:void(0)" class="u-btn__white" @click="viewDetails('ssjy')">查看详情</a>
         </div>
       </swiper-slide>
       <swiper-slide>
         <img v-if="!isMobile" src="@/assets/banner3.png" style="height: 100%;width: 100%">
         <div class="welcome-desc">
           <h2>如何应对新高考改革 重视生涯教育</h2>
-          <a href="javascript:void(0)" class="u-btn__white">查看详情</a>
+          <a href="javascript:void(0)" class="u-btn__white" @click="viewDetails('syjy')">查看详情</a>
         </div>
       </swiper-slide>
       <swiper-slide>
         <img v-if="!isMobile" src="@/assets/banner4.png" style="height: 100%;width: 100%">
         <div class="welcome-desc">
           <h2>教育信息化2.0时代的智慧教育</h2>
-          <a href="javascript:void(0)" class="u-btn__white">查看详情</a>
+          <a href="javascript:void(0)" class="u-btn__white" @click="viewDetails('zhjy')">查看详情</a>
         </div>
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
@@ -79,6 +79,27 @@ export default {
     // particlesJS('home-welcome', particles)
     if (document.querySelector('#bg-video')) {
       videojs('bg-video')
+    }
+  },
+  methods: {
+    viewDetails (type) {
+      switch (type) {
+        case 'wdy':
+          this.$router.push({name: 'Solution', params: {index: 0}})
+          // this.$router.push({path: '/solution', params: {index: 0}})
+          break
+        case 'ssjy':
+          this.$router.push({name: 'Solution', params: {index: 1}})
+          break
+        case 'syjy':
+          this.$router.push({name: 'Solution', params: {index: 3}})
+          break
+        case 'zhjy':
+          this.$router.push({name: 'Solution', params: {index: 2}})
+          break
+        default:
+          break
+      }
     }
   }
 }
