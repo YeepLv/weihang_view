@@ -1,6 +1,6 @@
 <template>
   <div class="y-menu yi-menu__pc">
-    <div class="y-menu__bar">
+    <div class="y-menu__bar" v-if="!isMobile">
       <a href="/" class="y-menu__logo left">
         <img style="margin-top: 20px" v-if="isIndex" src="@/assets/logo.svg">
         <img style="margin-top: 20px" v-if="!isIndex" src="@/assets/logo-white.svg">
@@ -15,6 +15,15 @@
         </div>
       </span>
     </div>
+    <div class="y-menu__bar-mobile" v-if="isMobile">
+      <a href="/" class="y-menu__logo-mobile">
+        <img style="margin-top: 20px" v-if="isIndex" src="@/assets/logo.svg">
+        <img style="margin-top: 20px" v-if="!isIndex" src="@/assets/logo-white.svg">
+      </a>
+      <div @click="showToggleMenu">
+        <span class="iconfont y-menu__toggle" :class="isOpend ? 'icon-close' : 'icon-spread'"></span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -24,6 +33,8 @@
     name: 'YMenu',
     data () {
       return {
+        isOpend: false,
+        isMobile: this.$store.state.isMobile,
         menuActive: false,
         menuOpen: false,
         menus: [
@@ -96,6 +107,10 @@
             }, 150 * (index + 1))
           })
         })
+      },
+      showToggleMenu () {
+        console.log('show toggle')
+        this.isOpend = !this.isOpend
       }
     },
     mounted () {
@@ -244,29 +259,15 @@
 }
 #mobile {
   .y-menu {
-    position: fixed;
-    padding: 0 1.333333rem;
-    height: 4rem;
-    line-height: 4rem;
-    top: 0;
-    &.active {
-      background-color: $color-primary;
+    &__bar-mobile {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
-    .icon {
-      width: 4rem;
-      height: 4rem;
-    }
-    .menu-level0 {
-      font-size: 1.533333rem;
-      color: #0084DD;
-      margin-top: 2rem;
-      .active {
-        color: $color-white;
-      }
-    }
-    .menu-level1 {
-      font-size: 1.266667rem;
-      margin-top: 1.4rem;
+    &__logo-mobile {}
+    &__toggle {
+      color: #0A96F0;
     }
   }
 }

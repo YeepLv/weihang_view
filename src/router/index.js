@@ -6,6 +6,7 @@ import Solution from '@/views/solution'
 import Product from '@/views/product'
 import Live from '@/views/live'
 import Case from '@/views/case'
+import Toggle from '@/views/'
 
 Vue.use(Router)
 
