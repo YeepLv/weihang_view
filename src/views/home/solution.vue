@@ -242,9 +242,10 @@ export default {
 #mobile {
   .solution {
     min-height: 0;
-    top: 0;
+    height: 380px;
+    top: 60px;
     &__wrap {
-      top: 14%;
+      top: 2.6%;
     }
     .img-ani__wrap img-ani__finance {
       transform: none;
