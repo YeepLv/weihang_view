@@ -201,7 +201,7 @@ h3 {
 // 移动端
 #mobile {
   h2 {
-    font-size: 2rem;
+    font-size: 1.66rem;
     line-height: 1.33rem;
     margin-bottom: 1.33rem;
   }
@@ -220,6 +220,10 @@ h3 {
   .u-btn__blue {
     @include btn(3rem, .933333rem, $color-white);
     background-color: $color-primary;
+  }
+  .u-btn__white {
+    @include btn(2rem, 1rem, $color-white);
+    background-color: transparent;
   }
 }
 

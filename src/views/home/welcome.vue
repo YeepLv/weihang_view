@@ -5,35 +5,35 @@
     </video> -->
     <swiper :options="swiperOption" style="height: 100%">
       <swiper-slide>
-        <img v-if="!isMobile" :src="welcomeBgUrl" style="height: 100%;width: 100%">
+        <img :src="welcomeBgUrl" style="height: 100%;width: 100%">
         <div class="welcome-desc">
           <h2>行科技之舟，渡中国教育之梦</h2>
           <a href="javascript:void(0)" class="u-btn__white">查看详情</a>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <img v-if="!isMobile" src="@/assets/banner5.gif" style="height: 100%;width: 100%">
+        <img src="@/assets/banner5.gif" style="height: 100%;width: 100%">
         <div class="welcome-desc">
           <h2>玮航教育五朵云解决方案</h2>
           <a href="javascript:void(0)" class="u-btn__white" @click="viewDetails('wdy')">查看详情</a>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <img v-if="!isMobile" src="@/assets/banner2.png" style="height: 100%;width: 100%">
+        <img src="@/assets/banner2.png" style="height: 100%;width: 100%">
         <div class="welcome-desc">
           <h2>教育精准扶贫——双师教学</h2>
           <a href="javascript:void(0)" class="u-btn__white" @click="viewDetails('ssjy')">查看详情</a>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <img v-if="!isMobile" src="@/assets/banner3.png" style="height: 100%;width: 100%">
+        <img src="@/assets/banner3.png" style="height: 100%;width: 100%">
         <div class="welcome-desc">
           <h2>如何应对新高考改革 重视生涯教育</h2>
           <a href="javascript:void(0)" class="u-btn__white" @click="viewDetails('syjy')">查看详情</a>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <img v-if="!isMobile" src="@/assets/banner4.png" style="height: 100%;width: 100%">
+        <img src="@/assets/banner4.png" style="height: 100%;width: 100%">
         <div class="welcome-desc">
           <h2>教育信息化2.0时代的智慧教育</h2>
           <a href="javascript:void(0)" class="u-btn__white" @click="viewDetails('zhjy')">查看详情</a>
@@ -41,7 +41,6 @@
       </swiper-slide>
       <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
-    <img v-if="isMobile" class="mobile-bg-earth" :src="welcomeBgUrl">
   </div>
 </template>
 
@@ -150,23 +149,19 @@ export default {
 #mobile {
   #home-welcome {
     max-height: 100vh;
-    background: #0033CC;
-    top: 0;
     h2 {
       white-space: nowrap;
       letter-spacing: 0;
     }
+    .welcome-desc {
+      letter-spacing: 2px;
+    }
   }
   .welcome {
+    top: 60px;
     position: relative;
-    .mobile-bg-earth {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 16.4rem;
-      height: 16.4rem;
-    }
+    height: 260px;
+    min-height: 260px;
   }
 }
 </style>
