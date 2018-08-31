@@ -2,11 +2,13 @@
   <div class="live">
     <y-menu :opened-index="3" :isIndex="true" class="menu"></y-menu>
     <div style="padding-top: 200px;background: #F9F9F9;padding-bottom: 50px;">
-      <div class="live-container" v-show="!liveIsOk">
+      <!-- <div class="live-container" v-show="!liveIsOk">
         当前暂无直播，您可以先观看下方历史直播
-      </div>
-      <div class="live-stream" v-show="liveIsOk">
-        <video ref="liveStream" src="http://121.201.65.88:9080/app/80b6977a6f024dd1b1035f1bfef3e3c4_2.m3u8"></video>
+      </div> -->
+      <div class="live-stream">
+        <!-- <video ref="liveStream" src="http://121.201.65.88:9080/app/80b6977a6f024dd1b1035f1bfef3e3c4_2.m3u8"></video> -->
+        <!-- <video ref="liveStream" controls src="rtmp://121.201.65.88:1935/live/e8b0755f48f0456cacba1c6d05ec68e2_0"></video> -->
+        <video ref="liveStream" controls src="http://121.201.65.88:9080/app/e8b0755f48f0456cacba1c6d05ec68e2_0.m3u8"></video>
       </div>
     </div>
     <div class="histroy">
@@ -36,7 +38,7 @@ export default {
     }).then((res) => {
       this.videos = res.body.data.list
     })
-    console.log(this.$refs['liveStream'].networkState)
+    console.log(this.$refs['liveStream'].error)
     if (this.$refs['liveStream'].networkState !== 3) {
       this.liveIsOk = true
     }
