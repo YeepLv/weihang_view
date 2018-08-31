@@ -1,7 +1,7 @@
 <template>
   <div class="y-footer" :class="classObject">
     <div class="y-footer__wrap f-content__wrap">
-      <div class="y-footer__about" v-if="!isMobile">
+      <div class="y-footer__about">
         <div class="y-footer__upper">
           <ul>
             <li>
@@ -33,12 +33,12 @@
           <div style="clear:both"></div>
         </div>
         <div class="y-footer__lower">
-          <p>Copyright &copy;2015-2018 深圳玮航教育科技有限公司 &nbsp;&nbsp;&nbsp; <a target="_blank" href="http://www.miitbeian.gov.cn">粤ICP备18101917号</a></p>
+          <p>Copyright &copy;2015-2018 深圳玮航教育科技有限公司 &nbsp;&nbsp;&nbsp; <a v-if="!isMobile" target="_blank" href="http://www.miitbeian.gov.cn">粤ICP备18101917号</a></p>
         </div>
       </div>
-      <div class="y-footer__copy" v-if="isMobile">
+      <!-- <div class="y-footer__copy" v-if="isMobile">
         <p>Copyright &copy;2015-2018 深圳玮航教育科技有限公司</p>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -151,13 +151,16 @@
   #mobile .y-footer {
     text-align: center;
     padding: 2rem 0;
+    background-size: cover;
+    background-position: 60% center;
+    height: 400px;
     &__contact {
       width: 100%;
     }
     .icon {
-      height: 2rem;
-      width: 4rem !important;
-      margin-bottom: 1.2rem;
+      height: 1rem;
+      width: 1.5rem !important;
+      margin-bottom: 0px;
 /*      &.zhihu {
         color: $logo-active-zhihu;
       }
@@ -180,6 +183,25 @@
       p {
         color: #999;
         font-size: .8rem;
+      }
+    }
+    &__wrap {
+      padding-top: 80px;
+    }
+    li {
+      text-align: left;
+    }
+    img {
+      float: left;
+    }
+    &__upper {
+      padding-bottom: 30px;
+    }
+    &__lower {
+      padding-top: 10px;
+
+      p {
+        font-size: 4px;
       }
     }
   }
