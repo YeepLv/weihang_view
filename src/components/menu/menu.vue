@@ -24,6 +24,27 @@
         <span class="iconfont y-menu__toggle" :class="isOpend ? 'icon-close' : 'icon-spread'"></span>
       </div>
     </div>
+    <!-- 下拉框导航 -->
+    <div v-if="isMobile && isOpend" class="toggle-list">
+      <ul>
+        <li v-for="(menu, key) in menus">
+          <div v-if="menu.url" class="toggle-list__item" @click="handlerClickToggle(menu, key)">
+            <router-link :to="menu.url" v-if="!menu.navs">{{menu.name}}</router-link>
+            <span v-if="menu.navs">{{menu.name}}</span>
+            <span class="iconfont" :class="activeKey===key ? 'icon-toggle' : 'icon-toggle-topshow'" v-if="menu.navs"></span>
+          </div>
+          <div class="toggle-div" v-if="activeKey===key && menu.navs">
+            <ul>
+              <li v-for="(nav, index) in menu.navs">
+                <div v-if="menu.url" class="toggle-list__item" @click="handlerClickToggle(menu, key, true)">
+                  <router-link :to="menu.url">{{nav}}</router-link>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -33,6 +54,7 @@
     name: 'YMenu',
     data () {
       return {
+        activeKey: null, // 点击的导航位置
         isOpend: false,
         isMobile: this.$store.state.isMobile,
         menuActive: false,
@@ -109,8 +131,17 @@
         })
       },
       showToggleMenu () {
-        console.log('show toggle')
         this.isOpend = !this.isOpend
+      },
+      // 处理点击跳转
+      handlerClickToggle (menu, key, isNav) {
+        if (!isNav) {
+          this.activeKey = this.activeKey === key ? null : key
+        }
+        if (!menu.navs || isNav) {
+          this.$router.push({ path: menu.url })
+          this.isOpend = false
+        }
       }
     },
     mounted () {
@@ -268,6 +299,35 @@
     &__logo-mobile {}
     &__toggle {
       color: #0A96F0;
+    }
+    .toggle-list {
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      background-color: white;
+      &__item {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 0.033333rem solid #c0c0c0;
+        .icon-toggle-topshow {
+          color: #c0c0c0;
+          font-size: 1rem;
+        }
+        .icon-toggle {
+          color: #c0c0c0;
+          font-size: 1rem;
+        }
+      }
+    }
+    .toggle-div {
+      background-color: #d7d7d7;
+      &__item {
+        border-bottom: 0.033333rem solid #c0c0c0;
+      }
     }
   }
 }
