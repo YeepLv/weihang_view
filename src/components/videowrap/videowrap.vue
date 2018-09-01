@@ -11,12 +11,14 @@
       </svg>
       <div class="mask" v-show="maskShow" :style="{ borderRadius: isIndex ? '190px' : '20px'}"></div>
     </div>
-    <p class="video-desc">{{ desc }}</p>
+    <p v-if="!isMobile" class="video-desc">{{ desc }}</p>
     <y-video v-if="videoShow" :current-video-src="currentVideoSrc" @close="videoShow = false"></y-video>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   props: ['src', 'desc', 'isIndex'],
   name: 'YVideowrap',
@@ -44,10 +46,15 @@ export default {
   },
   data () {
     return {
-      maskShow: false,
+      maskShow:  true,
       videoShow: false,
       currentVideoSrc: ''
     }
+  },
+  computed: {
+    ...mapGetters({
+      isMobile: 'isMobile'
+    })
   }
 }
 </script>
@@ -92,6 +99,27 @@ export default {
     position: absolute;
     top: 0;
     left: 0;
+  }
+}
+
+#mobile {
+  .videowrap {
+    width: 270px;
+    height: 190px;
+
+    video {
+      width: 270px;
+      height: 190px;
+    }
+  }
+  .mask {
+    height: 190px;
+  }
+  .play-btn {
+    width: 40px;
+    height: 40px;
+    top: 75px;
+    left: 115px;
   }
 }
 </style>

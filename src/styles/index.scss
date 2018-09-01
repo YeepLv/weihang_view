@@ -210,7 +210,7 @@ h3 {
     line-height: 1.33;
   }
   p {
-    font-size: 1.13rem;
+    font-size: .9rem;
     line-height: 1.43;
   }
   .u-btn__primary {
@@ -224,6 +224,18 @@ h3 {
   .u-btn__white {
     @include btn(2rem, 1rem, $color-white);
     background-color: transparent;
+  }
+  .f-divide__column--inline {
+    display: flex;
+    justify-content: space-around;
+    text-align: justify;
+    &:after {
+      content: '';
+      width: 100%;
+      display: none;
+      font-size: 0;
+      line-height: 0;
+    }
   }
 }
 

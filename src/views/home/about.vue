@@ -62,6 +62,8 @@ export default {
   .about {
     padding: 3.666667rem 0 320px;
     text-align: center;
+    min-height: 400px;
+    height: 400px;
     // background-image: url(~@/assets/mobile/map.png);
     background-size: cover;
     a {
@@ -69,11 +71,16 @@ export default {
     }
     h2 {
       margin-bottom: 2.666667rem;
+      font-family: $font-family;
     }
     p {
       line-height: 1.5;
       width: 80%;
       margin: 0 auto;
+    }
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
 }
