@@ -91,8 +91,36 @@ export default {
 }
 #mobile {
   .m-page__banner {
-    height: 100vh;
-    line-height: 100vh;
+    height: 260px;
+    line-height: 260px;
+    .nav__menu {
+      bottom: 1.2rem;
+      &__item {
+        width: 110px;
+        display: inline-block;
+        cursor: pointer;
+        opacity: 0.8;
+
+        span {
+          font-size: 14px;
+          font-weight: 400;
+        }
+      }
+      .active {
+        opacity: 1;
+        font-weight: bold;
+      }
+      &__bar {
+        margin-top: 15px;
+        height: 1px;
+        span {
+          height: 5px;
+        }
+      }
+    }
+  }
+  h2 {
+    font-size: 2rem;
   }
 }
 </style>

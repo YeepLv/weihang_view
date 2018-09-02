@@ -5,6 +5,7 @@ import YForm from './form'
 import YBanner from './banner'
 import YSectionCommon from './section-common'
 import YFullPage from './fullpage'
+import YMobileSubmenu from './mobile-submenu'
 
 const YUnits = {}
 YUnits.install = Vue => {
@@ -15,5 +16,6 @@ YUnits.install = Vue => {
   Vue.component(YBanner.name, YBanner)
   Vue.component(YSectionCommon.name, YSectionCommon)
   Vue.component(YFullPage.name, YFullPage)
+  Vue.component(YMobileSubmenu.name, YMobileSubmenu)
 }
 export default YUnits
