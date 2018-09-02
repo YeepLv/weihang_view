@@ -251,64 +251,91 @@ export default {
 <style lang="scss" scoped>
 @import "~@/styles/var";
 
-.case {
-  .menu {
-    background-color: inherit;
-  }
-  .product-banner {
-    background-image: url(~@/assets/case-banner.png)
-  }
-  .case-container {
-    padding-top: 100px;
-    width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 60px;
+  .case {
+    .menu {
+      background-color: inherit;
+    }
+    .product-banner {
+      background-image: url(~@/assets/case-banner.png)
+    }
+    .case-container {
+      padding-top: 100px;
+      width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 60px;
 
-    .single-case {
-      border: 1px solid #979797;
-      width: 100%;
-      height: 560px;
+      .single-case {
+        border: 1px solid #979797;
+        width: 100%;
+        height: 560px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+    }
+    .left {
+      width: 50%;
+      // float: left;
+      padding-left: 80px;
+      padding-right: 80px;
+
+      h3 {
+        font-family: $font-family;
+        font-size: 26px;
+        color: #000000;
+        margin-bottom: 20px;
+        line-height: 40px;
+      }
+      p {
+        font-family: $font-family;
+        font-size: 16px;
+        color: #000000;
+        line-height: 28px;
+      }
+    }
+    .right {
+      width: 50%;
+      padding-right: 80px;
+
+      img {
+        width: 100%;
+      }
+    }
+    .swiper-img {
       display: flex;
       align-items: center;
-      margin-bottom: 20px;
+      height: 300px;
+    }
+    .swiper-container:hover {
+      transform: scale(1.2, 1.2);
     }
   }
-  .left {
-    width: 50%;
-    // float: left;
-    padding-left: 80px;
-    padding-right: 80px;
 
-    h3 {
-      font-family: $font-family;
-      font-size: 26px;
-      color: #000000;
-      margin-bottom: 20px;
-      line-height: 40px;
-    }
-    p {
-      font-family: $font-family;
-      font-size: 16px;
-      color: #000000;
-      line-height: 28px;
+  #mobile {
+    .case {
+      display: flex;
+      flex-direction: column;
+      .menu {
+        background-color: white;
+      }
+      .case-container {
+        width: 100%;
+        .single-case {
+          display: flex;
+          flex-direction: column;
+          .left {
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+          }
+          .right {
+            width: 100%;
+            padding-right: 0;
+          }
+        }
+      }
     }
   }
-  .right {
-    width: 50%;
-    padding-right: 80px;
 
-    img {
-      width: 100%;
-    }
-  }
-  .swiper-img {
-    display: flex;
-    align-items: center;
-    height:300px;
-  }
-  .swiper-container:hover {
-    transform: scale(1.2, 1.2);
-  }
-}
 </style>

@@ -297,7 +297,7 @@ export default {
     changeTab (val) {
       this.currentIndex = val
     },
-    tabChanged(val) {
+    tabChanged (val) {
       this.openedIndex1 = val
     },
     navClick (idx) {
@@ -399,7 +399,7 @@ export default {
     width: 960px;
     margin-left: auto;
     margin-right: auto;
-    
+
     .text-container {
       width: 440px;
       border-radius: 8px;
