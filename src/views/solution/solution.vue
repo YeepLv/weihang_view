@@ -434,7 +434,7 @@ export default {
     width: 960px;
     margin-left: auto;
     margin-right: auto;
-    
+
     .text-container {
       width: 440px;
       border-radius: 8px;
