@@ -3,7 +3,7 @@
     <div class="about__wrap f-content__wrap">
       <div class="about__desc">
         <h2>部分合作学校</h2>
-        <p>文案</p>
+        <p>玮航教育的主要用户包括教育局、学校、教育机构、事业单位等，提供一系列定制化服务</p>
         <img src="@/assets/about-school.jpg" style="margin-top: 40px;">
       </div>
     </div>

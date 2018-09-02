@@ -9,7 +9,7 @@
         </span>
       </div>
       <y-mobile-submenu v-if="isMobile" :tab-list="tabArray" @tabChanged="tabChanged"></y-mobile-submenu>
-      <div class="content-container" :style="{paddingBottom: openedIndex1 === 2 ? '0px' : '120px'}">
+      <div class="content-container" :style="{paddingBottom: (openedIndex1 === 2 || isMobile) ? '0px' : '120px'}">
         <div class="content" v-show="openedIndex1 === 0">
             <h2>“五朵云”一站式解决方案</h2>
             <div>
@@ -20,7 +20,7 @@
             </p>
           </div>
         <div class="content" v-show="openedIndex1 === 1">
-          <h2>“中心校带薄弱校，一校带多点”<br/>的教育精准扶贫模式的痛点</h2>
+          <h2>“中心校带薄弱校，一校带多点”<br v-if="!isMobile"/>的教育精准扶贫模式的痛点</h2>
           <div>
             <img src="@/assets/solution-2-1.png" alt="">
           </div>
@@ -63,9 +63,9 @@
               1+X模式：在1+N模式上，整合多种第三方优质应用(如电子书包、电子班牌、平安校园、一卡通、教务系统、智慧图书馆等)
             </p>
           </div>
-          <div class="content" style="background: #F9F9F9" :style="{paddingBottom: openedIndex1 === 2 ? '120px' : ''}">
+          <div class="content" style="background: #F9F9F9" :style="{paddingBottom: openedIndex1 === 2 && !isMobile ? '120px' : ''}">
             <h2>应用延伸</h2>
-            <div style="display:flex;  justify-content: space-around;width:960px;margin-left:auto;margin-right:auto">
+            <div class="application">
               <div class="sub-content">
                 <h3>开放性课堂</h3>
                 <div style="height: 70px">
@@ -154,7 +154,7 @@
           <h2 style="margin-bottom:60px">智慧运动场</h2>
           <img src="@/assets/solution-6.png" alt="">
           <p>智慧运动场能实现一站式赛事全景直播服务，安装简单，维护方便。系统提供全景与感兴趣区域特写融合直播，可以让观众获得沉浸式的VR全景体验，也可以获得感兴趣区域的特写效果。</p>
-          <div style="width: 960px;margin-left:auto;margin-right:auto;margin-top: 40px">
+          <div v-if="!isMobile" class="feature-container">
             <div class="feature-block" style="margin-right: 25px;margin-bottom: 20px;">
               赛事全景直播
             </div>
@@ -171,6 +171,30 @@
               赛事微信分享
             </div>
             <div class="feature-block" style="margin-right: 25px">
+              移动端手机观看
+            </div>
+            <div class="feature-block">
+              赛事运营支撑服务
+            </div>
+            <div style="clear:both"></div>
+          </div>
+          <div v-if="isMobile" class="feature-container">
+            <div class="feature-block">
+              赛事全景直播
+            </div>
+            <div class="feature-block">
+              赛事特写直播
+            </div>
+            <div class="feature-block">
+              赛球自动跟踪
+            </div>
+            <div class="feature-block">
+              赛事全景录像
+            </div>
+            <div class="feature-block">
+              赛事微信分享
+            </div>
+            <div class="feature-block">
               移动端手机观看
             </div>
             <div class="feature-block">
@@ -219,11 +243,12 @@
       </div>
     </div>
     <div v-show="currentIndex === 1">
-      <div class="sub-menu">
+      <div class="sub-menu" v-if="!isMobile">
         <span class="menu__text" @click="openedIndex2 = index" :class="{ 'current': index === openedIndex2 }" v-for="(tab, index) in tabArray2" :key="tab">
           {{ tab }}
         </span>
       </div>
+      <y-mobile-submenu v-if="isMobile" :tab-list="tabArray2" @tabChanged="tabChanged2"></y-mobile-submenu>
       <div class="content-container">
         <div class="content" v-show="openedIndex2 === 0">
           <h2>应急指挥调度系统<br/>让安防进入“视联网+”时代</h2>
@@ -297,8 +322,11 @@ export default {
     changeTab (val) {
       this.currentIndex = val
     },
-    tabChanged(val) {
+    tabChanged (val) {
       this.openedIndex1 = val
+    },
+    tabChanged2 (val) {
+      this.openedIndex2 = val
     },
     navClick (idx) {
       this.currentIndex = idx
@@ -350,6 +378,13 @@ export default {
   }
   .product-banner {
     background-image: url(~@/assets/solution-banner1.png)
+  }
+  .application {
+    display:flex;
+    justify-content: space-around;
+    width:960px;
+    margin-left:auto;
+    margin-right:auto;
   }
   .content-container {
     padding-bottom: 60px;
@@ -423,6 +458,12 @@ export default {
       width: 100%;
     }
   }
+  .feature-container {
+    width: 960px;
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 40px;
+  }
   .feature-block {
     background-image: linear-gradient(-135deg, #0A96F0 0%, #00DCF0 100%);
     border-radius: 8px;
@@ -441,6 +482,59 @@ export default {
   .pSolution {
     .menu {
       background-color: #fff;
+    }
+    .application {
+      width: 100%;
+      flex-wrap: wrap;
+
+      h3 {
+        font-size: 1rem;
+      }
+      p {
+        font-size: .5rem;
+        line-height: 1.2rem;
+      }
+      .sub-content {
+        width: 45%;
+      }
+    }
+    .content {
+      padding-top: 40px;
+      padding-left: 20px;
+      padding-right: 20px;
+
+      div {
+        margin-bottom: 10px;
+      }
+      h2 {
+        line-height: 2rem;
+      }
+      p {
+        width: 100%;
+        line-height: 1.5rem;
+      }
+    }
+    img {
+      width: 100%;
+    }
+    .text-block {
+      width: 100%;
+
+      .text-container {
+        width: 100%;
+        height: 160px;
+        padding: 15px 30px;
+      }
+    }
+
+    .feature-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      .feature-block {
+        width: 49%;
+      }
     }
   }
 }

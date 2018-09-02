@@ -41,7 +41,7 @@ export default {
           name: 'finance',
           icon: '#icon-jujiaojiaoyu',
           title: '聚焦教育',
-          desc: '文案',
+          desc: '专注教育信息化集成及服务运营的定制化解决方案',
           logoUrls: []
         },
         service: {
@@ -50,7 +50,7 @@ export default {
           name: 'service',
           icon: '#icon-jujiaokeji',
           title: '聚焦科技',
-          desc: '文案',
+          desc: '基于视频融合技术的解决方案，让科技引领生活进入“视联网”时代',
           logoUrls: []
         }
       },

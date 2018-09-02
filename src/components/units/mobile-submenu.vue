@@ -13,30 +13,30 @@
 
 <script>
 export default {
-	name: 'YMobileSubmenu',
-	props: ['tabList'],
-	data() {
-		return {
-			titleClicked: false,
-			chosenIndex: 0,
-			currentTab: ''
-		}
-	},
-	mounted () {
-		this.currentTab = this.tabList[0]
-		const that = this
-		document.addEventListener('click', function() {
-			that.titleClicked = false
-		})
-	},
-	methods: {
-		clickTab (tab, index) {
-			this.chosenIndex=index;
-			this.currentTab=tab;
-			this.titleClicked=false
-			this.$emit('tabChanged', index)
-		}
-	}
+  name: 'YMobileSubmenu',
+  props: ['tabList'],
+  data () {
+    return {
+      titleClicked: false,
+      chosenIndex: 0,
+      currentTab: ''
+    }
+  },
+  mounted () {
+    this.currentTab = this.tabList[0]
+    const that = this
+    document.addEventListener('click', function () {
+      that.titleClicked = false
+    })
+  },
+  methods: {
+    clickTab (tab, index) {
+      this.chosenIndex = index
+      this.currentTab = tab
+      this.titleClicked = false
+      this.$emit('tabChanged', index)
+    }
+  }
 }
 </script>
 
