@@ -3,11 +3,12 @@
     <y-menu :opened-index="2" :isIndex="false" class="menu" @navClick="navClick"></y-menu>
     <y-banner ref="banner" title="方案中心" class="product-banner" :showTab="true" @changeTab="changeTab"></y-banner>
     <div v-show="currentIndex === 0">
-      <div class="sub-menu">
+      <div class="sub-menu" v-if="!isMobile">
         <span class="menu__text" @click="openedIndex1 = index" :class="{ 'current': index === openedIndex1 }" v-for="(tab, index) in tabArray" :key="tab">
           {{ tab }}
         </span>
       </div>
+      <y-mobile-submenu v-if="isMobile" :tab-list="tabArray" @tabChanged="tabChanged"></y-mobile-submenu>
       <div class="content-container" :style="{paddingBottom: openedIndex1 === 2 ? '0px' : '120px'}">
         <div class="content" v-show="openedIndex1 === 0">
             <h2>“五朵云”一站式解决方案</h2>
@@ -296,6 +297,9 @@ export default {
     changeTab (val) {
       this.currentIndex = val
     },
+    tabChanged(val) {
+      this.openedIndex1 = val
+    },
     navClick (idx) {
       this.currentIndex = idx
       this.$refs['banner'].activeNum = idx
@@ -430,6 +434,14 @@ export default {
     font-size: 18px;
     color: #FFFFFF;
     float: left;
+  }
+}
+
+#mobile {
+  .pSolution {
+    .menu {
+      background-color: #fff;
+    }
   }
 }
 </style>

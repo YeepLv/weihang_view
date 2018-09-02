@@ -17,8 +17,7 @@
     </div>
     <div class="y-menu__bar-mobile" v-if="isMobile">
       <a href="/" class="y-menu__logo-mobile">
-        <img style="margin-top: 20px" v-if="isIndex" src="@/assets/logo.svg">
-        <img style="margin-top: 20px" v-if="!isIndex" src="@/assets/logo-white.svg">
+        <img style="margin-top: 20px" src="@/assets/logo.svg">
       </a>
       <div @click="showToggleMenu">
         <span class="iconfont y-menu__toggle" :class="isOpend ? 'icon-close' : 'icon-spread'"></span>
@@ -290,6 +289,7 @@
 }
 #mobile {
   .y-menu {
+    height: 60px;
     &__bar-mobile {
       display: flex;
       flex-direction: row;
