@@ -31,8 +31,11 @@
                   <img src="@/assets/case-04.jpg" alt="">
                 </div>
               </swiper-slide>
-              <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-              <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
+              <div v-if="!isMobile">
+                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              </div>
             </swiper>
           </div>
         </div>
@@ -58,8 +61,11 @@
                   <img src="@/assets/case-07.jpg" alt="">
                 </div>
               </swiper-slide>
-              <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-              <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
+              <div v-if="!isMobile">
+                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              </div>
             </swiper>
           </div>
         </div>
@@ -80,8 +86,11 @@
                   <img src="@/assets/case-09.png" alt="">
                 </div>
               </swiper-slide>
-              <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-              <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
+              <div v-if="!isMobile">
+                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              </div>
             </swiper>
           </div>
         </div>
@@ -112,8 +121,11 @@
                   <img src="@/assets/case-10-4.png" alt="">
                 </div>
               </swiper-slide>
-              <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-              <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
+              <div v-if="!isMobile">
+                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              </div>
             </swiper>
           </div>
         </div>
@@ -139,8 +151,11 @@
                   <img src="@/assets/case-11-3.png" alt="">
                 </div>
               </swiper-slide>
-              <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-              <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
+              <div v-if="!isMobile">
+                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              </div>
             </swiper>
           </div>
         </div>
@@ -166,8 +181,11 @@
                   <img src="@/assets/case-14.jpg" alt="">
                 </div>
               </swiper-slide>
-              <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-              <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
+              <div v-if="!isMobile">
+                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
+              </div>
             </swiper>
           </div>
         </div>
@@ -222,18 +240,26 @@ export default {
     swiperSlide
   },
   data () {
-    return {
-      currentIndex: 0,
-      swiperOption: {
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
-        },
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false
-        }
+    const swiperOption = {
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
       }
+    }
+    if (this.$store.state.isMobile) {
+      swiperOption.pagination = {
+        el: '.swiper-pagination'
+      }
+    } else {
+      swiperOption.navigation = {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    }
+    return {
+      isMobile: this.$store.state.isMobile,
+      currentIndex: 0,
+      swiperOption: swiperOption
     }
   },
   methods: {
@@ -320,10 +346,16 @@ export default {
         background-color: white;
       }
       .case-container {
+        padding: 2.666667rem 1.5rem 0;
         width: 100%;
+        margin-bottom: 2rem;
         .single-case {
+          height: unset;
           display: flex;
           flex-direction: column;
+          padding: 1.666667rem 1.333333rem 0;
+          border: 1px solid #979797;
+          margin-bottom: 1rem;
           .left {
             width: 100%;
             padding-left: 0;
@@ -331,7 +363,28 @@ export default {
           }
           .right {
             width: 100%;
-            padding-right: 0;
+            margin-top: 1.333333rem;
+            padding: 0 0;
+          }
+          h3 {
+            font-family: MicrosoftYaHei;
+            font-size: 1.333333rem;
+            color: #000000;
+            line-height: 1.733333rem;
+            margin-bottom: 1.333333rem;
+          }
+          p {
+            font-family: MicrosoftYaHei;
+            font-size: 0.666667rem;
+            color: #000000;
+            line-height: 1.2rem;
+          }
+          .swiper-img {
+            height: 12.4rem;
+            margin-bottom: 1rem;
+            img {
+              height: 7.3rem;
+            }
           }
         }
       }
