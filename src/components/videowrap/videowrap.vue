@@ -3,13 +3,13 @@
     <div class="video-container" @click="videoShow = true;currentVideoSrc = src">
       <video ref="videoRef" :src="src" v-show="false"></video>
       <div ref="poster"></div>
-      <svg class="icon play-btn" v-show="maskShow" aria-hidden="true">
+      <svg class="icon play-btn" :class="{'small-btn': type === 'small'}" v-show="maskShow" aria-hidden="true">
         <use xlink:href="#icon-bofangjian-hover"></use>
       </svg>
-      <svg class="icon play-btn" v-show="!maskShow" aria-hidden="true">
+      <svg class="icon play-btn" :class="{'small-btn': type === 'small'}" v-show="!maskShow" aria-hidden="true">
         <use xlink:href="#icon-bofangjian-moren"></use>
       </svg>
-      <div class="mask" v-show="maskShow" :style="{ borderRadius: isIndex ? '190px' : '20px'}"></div>
+      <div class="mask" :class="{'small-mask': type === 'small'}" v-show="maskShow" :style="{ borderRadius: isIndex ? '190px' : '20px'}"></div>
     </div>
     <p v-if="!isMobile" class="video-desc">{{ desc }}</p>
     <y-video v-if="videoShow" :current-video-src="currentVideoSrc" @close="videoShow = false"></y-video>
@@ -20,7 +20,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  props: ['src', 'desc', 'isIndex'],
+  props: ['src', 'desc', 'isIndex', 'type'],
   name: 'YVideowrap',
   mounted () {
     const video = this.$refs['videoRef']
@@ -102,6 +102,7 @@ export default {
   }
 }
 
+
 #mobile {
   .videowrap {
     width: 270px;
@@ -111,15 +112,25 @@ export default {
       width: 270px;
       height: 190px;
     }
+
+    .mask {
+      height: 100%;
+    }
+    .play-btn {
+      width: 40px;
+      height: 40px;
+      top: 75px;
+      left: 115px;
+    }
   }
-  .mask {
-    height: 190px;
+  .small-mask {
+    height: 90px !important;
   }
-  .play-btn {
-    width: 40px;
-    height: 40px;
-    top: 75px;
-    left: 115px;
+  .small-btn {
+    width: 30px !important;
+    height: 30px !important;
+    top: 30px !important;
+    left: 60px !important;
   }
 }
 </style>
