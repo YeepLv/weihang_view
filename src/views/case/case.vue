@@ -381,9 +381,9 @@ export default {
           }
           .swiper-img {
             height: 12.4rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             img {
-              height: 7.3rem;
+              height: 9.3rem;
             }
           }
         }
