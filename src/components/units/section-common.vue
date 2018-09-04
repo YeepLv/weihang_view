@@ -104,10 +104,29 @@
 }
 #mobile {
   .m-section {
-    text-align: center;
+    .m-section__wrap {
+      padding-top: 3rem;
+      .m-section__main {
+        padding: 0 0;
+        .m-section__pic {
+          line-height: 0;
+          display: flex;
+          justify-content: center;
+          img {
+            height: 20rem;
+            width: 100%;
+          }
+        }
+        .m-section__content {
+          .title {
+            margin-bottom: 0.5rem;
+          }
+        }
+      }
+    }
     h2 {
-      margin-bottom: 15px;
-      margin-top: 55px;
+      /*margin-bottom: 15px;*/
+      margin-top: 0;
     }
     p {
       font-size: 16px;

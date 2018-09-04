@@ -46,12 +46,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.product {
-  .menu {
-    background-color: inherit;
+  .product {
+    .menu {
+      background-color: inherit;
+    }
+    .product-banner {
+      background-image: url(~@/assets/product-banner.png)
+    }
   }
-  .product-banner {
-    background-image: url(~@/assets/product-banner.png)
+
+  #mobile {
+    .product {
+      display: flex;
+      flex-direction: column;
+      .menu {
+        background-color: white;
+      }
+      .product-banner {
+        line-height: 20rem;
+      }
+    }
   }
-}
 </style>
