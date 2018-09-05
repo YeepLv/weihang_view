@@ -3,7 +3,7 @@
     <h2>案例展示</h2>
     <p>点击以下视频可观看智慧云课堂的各类延伸应用场景</p>
     <div class="cases__video">
-      <y-videowrap v-if="!isMobile" v-for="(video, idx) in videos" :key="idx" :src="video.path" :desc="video.title" :isIndex="true" style="margin-right: 40px"></y-videowrap>
+      <y-videowrap v-if="!isMobile" v-for="(video, idx) in videos" :key="idx" :src="video.path" :poster="video.imageUrl" :desc="video.title" :isIndex="true" style="margin-right: 40px"></y-videowrap>
       <swiper v-if="isMobile" :options="swiperOption">
         <swiper-slide v-for="(video, idx) in videos" :key="idx" :src="video.path" :desc="video.title" :isIndex="true">
           <y-videowrap :src="video.path" :desc="video.title" :isIndex="true"></y-videowrap>
@@ -116,7 +116,7 @@ export default {
     margin-bottom: 2rem;
   }
   .cases__video {
-    margin-top: 0px;
+    margin-top: 20px;
   }
   .videowrap {
     margin-bottom: 50px;

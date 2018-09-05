@@ -8,6 +8,7 @@
 <script>
 import 'video.js/dist/video-js.min.css'
 import { videoPlayer } from 'vue-video-player'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
@@ -16,11 +17,10 @@ export default {
   props: ['currentVideoSrc'],
   name: 'YVideo',
   data () {
-    const src = this.currentVideoSrc
     return {
       playerOptions: {
         // videojs options
-        width: 600,
+        width: (document.body.clientWidth < 1024) ? document.body.clientWidth : 960,
         muted: true,
         language: 'en',
         playbackRates: [0.7, 1.0, 1.5, 2.0],
@@ -31,6 +31,11 @@ export default {
         }]
       }
     }
+  },
+  computed: {
+    ...mapGetters({
+      isMobile: 'isMobile'
+    })
   }
 }
 </script>
@@ -49,7 +54,7 @@ export default {
   z-index: 10000;
 
   .video-player {
-    width: 600px;
+    width: 960px;
     left: 50%;
     top: 50%;
     transform: translate(0, 50%);

@@ -87,12 +87,15 @@
   }
   .footer-common {
     background-image: url(~@/assets/footer.png);
+    background-size: 100% 100%;
   }
   .footer-grey {
     background-image: url(~@/assets/footer-grey.png);
+    background-size: 100% 100%;
   }
   .footer-bg {
     background-image: url(~@/assets/footer-bg.png);
+    background-size: 100% 100%;
   }
   .y-footer {
     background-color: $color-white;

@@ -2,7 +2,9 @@
   <div class="videowrap" @mouseover="maskShow = true" @mouseout="maskShow = false">
     <div class="video-container" @click="videoShow = true;currentVideoSrc = src">
       <video ref="videoRef" :src="src" v-show="false"></video>
-      <div ref="poster"></div>
+      <div>
+        <!-- <img src="poster" alt="" style="width: 100%;height: 100%"> -->
+      </div>
       <svg class="icon play-btn" :class="{'small-btn': type === 'small'}" v-show="maskShow" aria-hidden="true">
         <use xlink:href="#icon-bofangjian-hover"></use>
       </svg>
@@ -20,7 +22,7 @@
 import { mapGetters } from 'vuex'
 
 export default {
-  props: ['src', 'desc', 'isIndex', 'type'],
+  props: ['src', 'desc', 'isIndex', 'type', 'poster'],
   name: 'YVideowrap',
   mounted () {
     const video = this.$refs['videoRef']
@@ -36,6 +38,8 @@ export default {
 
       var img = document.createElement('img')
       img.src = canvas.toDataURL('image/png')
+      img.style.width = '100%'
+      img.style.height = '100%'
       if (this.isIndex) {
         img.style.borderRadius = '190px'
       } else {
@@ -55,6 +59,15 @@ export default {
     ...mapGetters({
       isMobile: 'isMobile'
     })
+  },
+  watch: {
+    videoShow (val) {
+      if (val) {
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.overflow = 'auto'
+      }
+    }
   }
 }
 </script>
@@ -119,7 +132,7 @@ export default {
     .play-btn {
       width: 40px;
       height: 40px;
-      top: 75px;
+      top: 60px;
       left: 115px;
     }
   }

@@ -24,9 +24,9 @@ export default {
 @import "~@/styles/mixin";
 
 .about {
-  min-height: 1065px;
+  min-height: 940px;
   color: $color-white;
-  padding: 150px 0;
+  padding: 120px 0 0 0;
   background-image: url(~@/assets/about.png);
   background-size: cover;
   background-position: center center;
@@ -34,7 +34,7 @@ export default {
   color: #000000;
   &__desc {
     h2 {
-      margin-bottom: 60px;
+      margin-bottom: 30px;
       font-size: 60px;
     }
     p {

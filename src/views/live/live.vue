@@ -2,14 +2,16 @@
   <div class="live">
     <y-menu :opened-index="3" :isIndex="true" class="menu"></y-menu>
     <div class="live-outer">
-      <div class="live-container" v-show="!liveIsOk">
+      <!-- <div class="live-container" v-show="!liveIsOk">
         当前暂无直播，您可以先观看下方历史直播
-      </div>
-      <!-- <div class="live-stream">
-        <video ref="liveStream" src="http://121.201.65.88:9080/app/80b6977a6f024dd1b1035f1bfef3e3c4_2.m3u8"></video>
-        <video ref="liveStream" controls src="rtmp://121.201.65.88:1935/live/e8b0755f48f0456cacba1c6d05ec68e2_0"></video>
-        <video ref="liveStream" controls src="http://121.201.65.88:9080/app/e8b0755f48f0456cacba1c6d05ec68e2_0.m3u8"></video>
       </div> -->
+      <div class="live-stream">
+        <!-- <video ref="liveStream" src="http://121.201.65.88:9080/app/80b6977a6f024dd1b1035f1bfef3e3c4_2.m3u8"></video>
+        <video ref="liveStream" controls src="rtmp://121.201.65.88:1935/live/e8b0755f48f0456cacba1c6d05ec68e2_0"></video>
+        <video ref="liveStream" controls src="http://121.201.65.88:9080/app/e8b0755f48f0456cacba1c6d05ec68e2_0.m3u8"></video> -->
+        <video-player class="vjs-custom-skin" :options="pcPlayerOptions">
+        </video-player>
+      </div>
     </div>
     <div class="histroy">
       <h2>历史直播</h2>
@@ -28,6 +30,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import { videoPlayer } from 'vue-video-player'
+import 'videojs-flash'
+import 'videojs-contrib-hls/dist/videojs-contrib-hls.js'
+import welcomeBg from '@/assets/welcome-bg.png'
+
 export default {
   mounted () {
     this.$http.get('/api/website/video', {
@@ -38,16 +46,41 @@ export default {
     }).then((res) => {
       this.videos = res.body.data.list
     })
-    console.log(this.$refs['liveStream'].error)
-    if (this.$refs['liveStream'].networkState !== 3) {
-      this.liveIsOk = true
-    }
+    // console.log(this.$refs['liveStream'].error)
+    // if (this.$refs['liveStream'].networkState !== 3) {
+    //   this.liveIsOk = true
+    // }
+  },
+  computed: {
+    ...mapGetters({
+      isMobile: 'isMobile'
+    })
   },
   data () {
     return {
       videos: [],
-      liveIsOk: false
+      liveIsOk: false,
+      pcPlayerOptions: {
+        // videojs and plugin options
+        height: (document.body.clientWidth < 1024) ? 200 : 540,
+        width: (document.body.clientWidth < 1024) ? document.body.clientWidth : 960,
+        sources: [{
+          withCredentials: false,
+          type: "application/x-mpegURL",
+          src: "http://121.201.65.88:9080/app/e8b0755f48f0456cacba1c6d05ec68e2_0.m3u8"
+        }],
+        controlBar: {
+          timeDivider: false,
+          durationDisplay: false
+        },
+        flash: { hls: { withCredentials: false }},
+        html5: { hls: { withCredentials: false }},
+        poster: welcomeBg
+      }
     }
+  },
+  components: {
+    videoPlayer
   }
 }
 </script>

@@ -7885,7 +7885,7 @@ verror@1.10.0:
     videojs-vtt.js "0.12.6"
     xhr "2.4.0"
 
-videojs-contrib-hls@^5.12.2:
+videojs-contrib-hls@^5.12.2, videojs-contrib-hls@^5.14.1:
   version "5.14.1"
   resolved "http://registry.npm.taobao.org/videojs-contrib-hls/download/videojs-contrib-hls-5.14.1.tgz#eba4f4f6772a74a68ee7a213536ed7d2738972bd"
   dependencies:
@@ -7907,7 +7907,7 @@ videojs-contrib-media-sources@4.7.2:
     video.js "^5.17.0 || ^6.2.0"
     webwackify "0.1.6"
 
-videojs-flash@^2.1.0:
+videojs-flash@^2.1.0, videojs-flash@^2.1.1:
   version "2.1.1"
   resolved "http://registry.npm.taobao.org/videojs-flash/download/videojs-flash-2.1.1.tgz#4fa99f4e09235193326c296b1f3b083a5aacd1c9"
   dependencies:
