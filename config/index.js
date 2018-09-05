@@ -19,6 +19,10 @@ module.exports = {
       '/api': {
         target: 'http://121.201.65.88',
         changeOrigin: true
+      },
+      '/img': {
+        target: 'http://121.201.65.88',
+        changeOrigin: true
       }
     },
 
