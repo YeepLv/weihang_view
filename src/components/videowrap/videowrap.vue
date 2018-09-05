@@ -1,6 +1,6 @@
 <template>
-  <div class="videowrap" @mouseover="maskShow = true" @mouseout="maskShow = false">
-    <div class="video-container" @click="videoShow = true;currentVideoSrc = src">
+  <div class="videowrap" @mouseover="maskShow = true" @mouseout="maskShow = true">
+    <div class="video-container" @click.stop="videoShow = true;currentVideoSrc = src">
       <video ref="videoRef" :src="src" v-show="false"></video>
       <div>
         <!-- <img src="poster" alt="" style="width: 100%;height: 100%"> -->
@@ -14,7 +14,7 @@
       <div class="mask" :class="{'small-mask': type === 'small'}" v-show="maskShow" :style="{ borderRadius: isIndex ? '190px' : '20px'}"></div>
     </div>
     <p v-if="!isMobile" class="video-desc">{{ desc }}</p>
-    <y-video v-if="videoShow" :current-video-src="currentVideoSrc" @close="videoShow = false"></y-video>
+    <y-video v-if="videoShow" :current-video-src="currentVideoSrc" @close="videoShow = false" :isIndex="isIndex"></y-video>
   </div>
 </template>
 
@@ -27,6 +27,11 @@ export default {
   mounted () {
     const video = this.$refs['videoRef']
     video.addEventListener('loadeddata', this.captureImage)
+    const that = this
+    document.addEventListener('click', function () {
+      that.videoShow = false
+      that.maskShow = true
+    })
   },
   methods: {
     captureImage () {
@@ -77,10 +82,11 @@ export default {
   width: 460px;
   height: 260px;
   display: inline-block;
-  margin-bottom: 110px;
+  margin-bottom: 150px;
 
   .video-container {
     position: relative;
+    height: 260px;
   }
 
   video {
@@ -127,12 +133,12 @@ export default {
     }
 
     .mask {
-      height: 100%;
+      height: 190px;
     }
     .play-btn {
       width: 40px;
       height: 40px;
-      top: 60px;
+      top: 70px;
       left: 115px;
     }
   }

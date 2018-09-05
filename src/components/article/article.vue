@@ -35,7 +35,7 @@ export default {
   #yarticle {
     position: fixed;
     width: 100%;
-    height: auto;
+    height: 100%;
     top: 0;
     z-index: 10;
     background-color: rgba(0,0,0,.5);
@@ -88,6 +88,8 @@ export default {
       line-height: 32px;
     }
     .a-content {
+      height: 85%;
+      overflow-y: auto;
       p {
         line-height: 24px;
       }

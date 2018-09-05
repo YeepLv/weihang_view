@@ -289,7 +289,7 @@ export default {
       width: 960px;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 60px;
+      margin-bottom: 120px;
 
       .single-case {
         border: 1px solid #979797;

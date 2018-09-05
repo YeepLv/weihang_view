@@ -1,7 +1,7 @@
 <template>
   <div class="y-video">
     <div class="content" @click="$emit('close')"></div>
-    <video-player class="vjs-custom-skin vjs-big-play-centered video-player" :options="playerOptions"></video-player>
+    <video-player class="vjs-custom-skin vjs-big-play-centered video-player" :style="{transform: (isIndex && isMobile) ? 'none' : 'translate(0, 50%)'}" :options="playerOptions"></video-player>
   </div>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   components: {
     videoPlayer
   },
-  props: ['currentVideoSrc'],
+  props: ['currentVideoSrc', 'isIndex'],
   name: 'YVideo',
   data () {
     const that = this
@@ -51,7 +51,7 @@ export default {
   left: 0px;
   bottom: 0px;
   right: 0px;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0,0,0,.7);
   z-index: 10000;
 
   .video-player {

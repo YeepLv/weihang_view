@@ -39,7 +39,7 @@
         <div class="third-page">
           <h1>招聘岗位</h1>
           <div class="job-contain">
-            <div class="job">
+            <div class="job" v-if="!isMobile">
               <span>职位：</span>
               <div class="type" @click="currentType = 0" :class="{ 'chosen-type': currentType === 0}">全部</div>
               <div class="type" @click="currentType = 1" :class="{ 'chosen-type': currentType === 1}">技术</div>
@@ -111,6 +111,13 @@ export default {
         this.footerType = 2
       } else {
         this.footerType = 0
+      }
+    },
+    articleDialogShow (val) {
+      if (val) {
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.overflow = 'auto'
       }
     }
   },
@@ -196,6 +203,7 @@ export default {
       display: flex;
       flex-wrap: wrap;
       cursor: pointer;
+      padding-bottom: 120px;
 
       .article {
         margin-bottom: 60px;
@@ -235,6 +243,7 @@ export default {
       margin-right: auto;
       margin-left: auto;
       margin-bottom: 60px;
+      padding-bottom: 120px;
 
       .job {
         margin-bottom: 40px;
@@ -304,6 +313,8 @@ export default {
       }
       .product-banner {
         line-height: 20rem;
+        background-size: cover;
+        background-position: 50% 50%;
       }
       .sub-menu {
         .menu__text {
@@ -355,7 +366,7 @@ export default {
           }
           .job-contain {
             background: #FFFFFF;
-            border: 1px solid #E9E9E9;
+            border: none;
             padding: 1.066667rem 1.166667rem;
             .job {
               margin-bottom: 1rem;
@@ -369,8 +380,8 @@ export default {
             .job-list {
               .post {
                 width: 100%;
-                border: unset;
-                border-top: 1px solid #E9E9E9;
+                border: 1px solid #E9E9E9;
+                padding-right: 10px;
                 .job-content {
                   p {
                     font-family: MicrosoftYaHei;
@@ -398,6 +409,10 @@ export default {
               }
             }
           }
+        }
+        .about-bottom {
+          height: 75px;
+          background-size: 100%;
         }
       }
     }

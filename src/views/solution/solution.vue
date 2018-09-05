@@ -381,7 +381,7 @@ export default {
   }
   .application {
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width:960px;
     margin-left:auto;
     margin-right:auto;
@@ -422,7 +422,7 @@ export default {
       line-height: 32px;
     }
     .sub-content {
-      width: 220px;
+      width: 198px;
       display: inline-block;
       text-align: left;
       p {

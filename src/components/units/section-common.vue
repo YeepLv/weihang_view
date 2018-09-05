@@ -38,7 +38,7 @@
     color: #000000;
     text-align: center;
     margin-top: 80px;
-    margin-bottom: 40px;
+    margin-bottom: 80px;
   }
   p {
     line-height: 34px;
@@ -113,7 +113,7 @@
           display: flex;
           justify-content: center;
           img {
-            height: 20rem;
+            height: 15rem;
             width: 100%;
           }
         }

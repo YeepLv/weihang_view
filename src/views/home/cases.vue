@@ -12,7 +12,7 @@
       </swiper>
     </div>
 
-    <y-video v-if="videoShow" :current-video-src="currentVideoSrc" @close="videoShow = false"></y-video>
+    <!-- <y-video v-if="videoShow" :current-video-src="currentVideoSrc" @close="videoShow = false"></y-video> -->
   </div>
 </template>
 
@@ -120,6 +120,9 @@ export default {
   }
   .videowrap {
     margin-bottom: 50px;
+  }
+  >>>.y-video .video-player {
+    transform: none !important;
   }
 }
 </style>

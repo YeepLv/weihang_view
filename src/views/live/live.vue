@@ -9,7 +9,7 @@
         <!-- <video ref="liveStream" src="http://121.201.65.88:9080/app/80b6977a6f024dd1b1035f1bfef3e3c4_2.m3u8"></video>
         <video ref="liveStream" controls src="rtmp://121.201.65.88:1935/live/e8b0755f48f0456cacba1c6d05ec68e2_0"></video>
         <video ref="liveStream" controls src="http://121.201.65.88:9080/app/e8b0755f48f0456cacba1c6d05ec68e2_0.m3u8"></video> -->
-        <video-player class="vjs-custom-skin" :options="pcPlayerOptions">
+        <video-player class="vjs-custom-skin vjs-big-play-centered" :options="pcPlayerOptions">
         </video-player>
       </div>
     </div>
@@ -111,6 +111,7 @@ export default {
 
   .histroy {
     margin-top: 120px;
+    padding-bottom: 120px;
     h2 {
       text-align: center;
       font-family: $font-family;
@@ -154,6 +155,7 @@ export default {
     }
     .histroy {
       margin-top: 60px;
+      padding-bottom: 0px;
     }
     .video-list {
       width: 100%;

@@ -5,9 +5,9 @@
         <img style="margin-top: 20px" v-if="isIndex" src="@/assets/logo.svg">
         <img style="margin-top: 20px" v-if="!isIndex" src="@/assets/logo-white.svg">
       </a>
-      <span class="y-menu__text" :class="{ 'current': (index === openedIndex && isIndex), 'current-white': (index === openedIndex && !isIndex), 'first-text': openedIndex === 0, 'color-white': !isIndex }" v-for="(menu0, index) in menus" :key="index">
-        <span v-if="menu0.url" @click.stop="changeState(index)"><router-link :to="menu0.url">{{menu0.name}}</router-link></span>
-        <div class="nav-div" v-if="menu0.showNav && openedIndex === index && globalShowNav">
+      <span class="y-menu__text" @mouseover="changeState(index)" :class="{ 'current': (index === openedIndex && isIndex), 'current-white': (index === openedIndex && !isIndex), 'first-text': openedIndex === 0, 'color-white': !isIndex }" v-for="(menu0, index) in menus" :key="index">
+        <span v-if="menu0.url" ><router-link :to="menu0.url">{{menu0.name}}</router-link></span>
+        <div class="nav-div" @mouseout="globalShowNav = false" v-show="menu0.showNav && openedIndex === index && globalShowNav">
           <span v-for="(nav, navIdx) in menu0.navs" :key="navIdx" @click="test(navIdx)">
             {{ nav }}
             <hr v-if="navIdx !== menu0.navs.length - 1">
@@ -79,6 +79,7 @@
        */
       changeState (value) {
         this.globalShowNav = true
+        this.openedIndex = value
         // this.openedIndex = value
         // this.menuOpen = value
         // const wrapper = document.querySelector('#bigMenuWrapper')
