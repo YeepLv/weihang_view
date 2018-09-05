@@ -17,6 +17,7 @@ export default {
   props: ['currentVideoSrc'],
   name: 'YVideo',
   data () {
+    const that = this
     return {
       playerOptions: {
         // videojs options
@@ -27,7 +28,7 @@ export default {
         // poster: "/static/banner0.png",
         sources: [{
           type: 'video/mp4',
-          src
+          src: that.currentVideoSrc
         }]
       }
     }
