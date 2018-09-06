@@ -317,6 +317,9 @@ export default {
         background-position: 50% 50%;
       }
       .sub-menu {
+        padding-top: 0.5rem;
+        height: 2.666667rem;
+        border-bottom: 1px solid #EEEEEE;
         .menu__text {
           margin-right: 0;
           font-size: 0.666667rem;
@@ -333,6 +336,7 @@ export default {
       }
       .article-contain {
         padding: 0 0;
+        margin-top: 1.333333rem;
         .first-page {
           width: 100%;
           p {
@@ -360,13 +364,16 @@ export default {
           width: 100%;
           padding: 0 1.5rem;
           h1 {
-            font-size: 48px;
-            margin-top: 1.333333rem;
-            margin-bottom: 2.433333rem;
+            font-size: 2rem;
+            font-family: MicrosoftYaHei;
+            color: #000000;
+            letter-spacing: 1.72px;
+            text-align: center;
+            margin: 3.333333rem 0 2.433333rem;
           }
           .job-contain {
             background: #FFFFFF;
-            border: none;
+            border: 1px solid #E9E9E9;
             padding: 1.066667rem 1.166667rem;
             .job {
               margin-bottom: 1rem;
@@ -378,10 +385,13 @@ export default {
               }
             }
             .job-list {
+              margin-top: 0;
               .post {
+                border: none;
+                border-bottom: 1px solid #E9E9E9;;
                 width: 100%;
-                border: 1px solid #E9E9E9;
                 padding-right: 10px;
+                height: 4.633333rem;;
                 .job-content {
                   p {
                     font-family: MicrosoftYaHei;
@@ -407,6 +417,9 @@ export default {
                   margin-right: 0;
                 }
               }
+              :last-child {
+                border: none;
+              }
             }
           }
         }
@@ -414,6 +427,12 @@ export default {
           height: 75px;
           background-size: 100%;
         }
+      }
+      .current:after {
+        width: 3.333333rem;
+        height: 0.133333rem;
+        bottom: -0.333333rem;
+        left: -0.286667rem;
       }
     }
   }
