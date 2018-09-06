@@ -102,6 +102,9 @@ export default {
     #yarticle {
       padding: 6.133333rem 1.5rem;
       background-color: rgba(0,0,0,.8);
+      p {
+        margin: 1rem 0;
+      }
       .article-content {
         top: 0;
         width: 100%;
@@ -113,6 +116,9 @@ export default {
           width: 3rem;
           height: 3rem;
           line-height: 46px;
+        }
+        .a-content {
+          height: 75%;
         }
       }
     }
