@@ -110,10 +110,14 @@ export default {
     height: 440px;
     padding-top: 0px;
     top: 60px;
+
+    p {
+      margin-top: 20px;
+    }
   }
   h2 {
-    margin-top: 3.666667rem;
-    margin-bottom: 2rem;
+    margin-top: 2.666667rem;
+    margin-bottom: 1rem;
   }
   .cases__video {
     margin-top: 20px;

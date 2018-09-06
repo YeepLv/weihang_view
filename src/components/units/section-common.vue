@@ -113,7 +113,7 @@
           display: flex;
           justify-content: center;
           img {
-            height: 15rem;
+            height: 100%;
             width: 100%;
           }
         }
@@ -127,10 +127,11 @@
     h2 {
       /*margin-bottom: 15px;*/
       margin-top: 0;
+      font-weight: bold;
     }
     p {
-      font-size: 16px;
-      line-height: 23px;
+      font-size: 1rem;
+      line-height: 1.5rem;
     }
     &__main {
       display: block;

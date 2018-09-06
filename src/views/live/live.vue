@@ -141,6 +141,7 @@ export default {
 
 #mobile {
   .live {
+    overflow-x: hidden;
     .live-outer {
       padding-top: 60px;
       padding-bottom: 0px;

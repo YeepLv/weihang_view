@@ -204,7 +204,7 @@
       padding-top: 10px;
 
       p {
-        font-size: 4px;
+        font-size: 10px;
       }
     }
   }

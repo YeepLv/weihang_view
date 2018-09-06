@@ -70,7 +70,7 @@ export default {
       margin-top: 2rem;
     }
     h2 {
-      margin-bottom: 2.666667rem;
+      margin-bottom: 1.666667rem;
       font-family: $font-family;
     }
     p {
