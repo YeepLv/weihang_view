@@ -45,10 +45,11 @@
           <div class="job-contain">
             <div class="job" v-if="!isMobile">
               <span>职位：</span>
-              <div class="type" @click="currentType = 0" :class="{ 'chosen-type': currentType === 0}">全部</div>
-              <div class="type" @click="currentType = 1" :class="{ 'chosen-type': currentType === 1}">技术</div>
-              <div class="type" @click="currentType = 2" :class="{ 'chosen-type': currentType === 2}">市场与销售</div>
-              <div class="type" @click="currentType = 3" :class="{ 'chosen-type': currentType === 3}">职能</div>
+              <div class="type" v-for="(value, key) of tagArray" @click="tagSelect(value, key)" :class="{ 'chosen-type': currentType === key}">{{value.tagName}}</div>
+              <!--<div class="type" @click="currentType = 0" :class="{ 'chosen-type': currentType === 0}">全部</div>-->
+              <!--<div class="type" @click="currentType = 1" :class="{ 'chosen-type': currentType === 1}">技术</div>-->
+              <!--<div class="type" @click="currentType = 2" :class="{ 'chosen-type': currentType === 2}">市场与销售</div>-->
+              <!--<div class="type" @click="currentType = 3" :class="{ 'chosen-type': currentType === 3}">职能</div>-->
             </div>
             <div class="job-list">
               <div v-for="(post, idx) in postArray" @click="postDialogShow = true;currentPost = post" class="post" :key="idx" :style="!isMobile ? { marginRight: (40 - (idx % 2) * 40) + 'px'} : {}" >
@@ -83,6 +84,7 @@ export default {
       postDialogShow: false,
       openedIndex: 0,
       tabArray: ['公司介绍', '新闻中心', '招贤纳士'],
+      tagArray: [],
       articleArray: [],
       currentArticle: {},
       currentPost: {},
@@ -123,6 +125,7 @@ export default {
   created () {
     this.getArticleData()
     this.getJobData()
+    this.getTagData()
   },
   methods: {
     navClick (idx) {
@@ -143,16 +146,34 @@ export default {
         this.articleAllPage = Math.ceil(res.body.data.count / this.articlePageSize)
       })
     },
-    getJobData () {
+    getJobData (tagId) {
+      const params = {
+        pageNo: this.currentpage,
+        pageSize: this.pagesize
+      }
+      if (tagId) {
+        params.tagId = tagId
+      }
       this.$http.get('/api/website/job', {
-        params: {
-          pageNo: this.currentpage,
-          pageSize: this.pagesize
-        }
+        params
       }).then((res) => {
         this.postArray = res.body.data.list
         this.allpage = Math.ceil(res.body.data.count / this.pagesize)
       })
+    },
+    getTagData () {
+      this.$http.get('/api/website/tag').then((res) => {
+        const data = res.body.data
+        data.unshift({
+          id: 0,
+          tagName: '全部'
+        })
+        this.tagArray = data
+      })
+    },
+    tagSelect (row, key) {
+      this.currentType = key
+      this.getJobData(row.id)
     }
   }
 }
