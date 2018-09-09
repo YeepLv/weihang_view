@@ -55,7 +55,7 @@ export default {
 				if(newRight > -30) {
 					newRight = -30
 				}
-				this.$refs['currenttabsvg'].style.right = `-30px`
+				this.$refs['currenttabsvg'].style.right = `${newRight}px`
 			})
     }
   }
