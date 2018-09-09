@@ -45,7 +45,9 @@
           <div class="job-contain">
             <div class="job" v-if="!isMobile">
               <span>职位：</span>
-              <div class="type" v-for="(value, key) of tagArray" @click="tagSelect(value, key)" :class="{ 'chosen-type': currentType === key}">{{value.tagName}}</div>
+              <div class="tag-list">
+                <div class="type" v-for="(value, key) of tagArray" @click="tagSelect(value, key)" :class="{ 'chosen-type': currentType === key}">{{value.tagName}}</div>
+              </div>
               <!--<div class="type" @click="currentType = 0" :class="{ 'chosen-type': currentType === 0}">全部</div>-->
               <!--<div class="type" @click="currentType = 1" :class="{ 'chosen-type': currentType === 1}">技术</div>-->
               <!--<div class="type" @click="currentType = 2" :class="{ 'chosen-type': currentType === 2}">市场与销售</div>-->
@@ -64,7 +66,7 @@
               </div>
             </div>
           </div>
-          <y-pagination :currentpage="currentpage" :allpage="allpage" @changePage="changeJobPage"></y-pagination>
+          <y-pagination :currentpage="currentpage" :allpage="allpage" @changePage="changeJobPage" v-if="allpage !== 1 && allpage"></y-pagination>
         </div>
       </div>
     </div>
@@ -313,6 +315,14 @@ export default {
 
       .job {
         margin-bottom: 40px;
+        display: flex;
+        flex-direction: row;
+        span {
+          width: 55px;
+        }
+        .tag-list {
+
+        }
       }
 
       .job-list {
