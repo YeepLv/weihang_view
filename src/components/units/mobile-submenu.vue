@@ -33,12 +33,12 @@ export default {
     document.addEventListener('click', function () {
       that.titleClicked = false
     })
-	},
-	watch: {
-		tabIndex () {
-			this.currentTab = this.tabList[this.tabIndex || 0]
-		}
-	},
+  },
+  watch: {
+    tabIndex () {
+      this.currentTab = this.tabList[this.tabIndex || 0]
+    }
+  },
   methods: {
     clickTab (tab, index) {
       this.chosenIndex = index
@@ -66,6 +66,7 @@ export default {
 
 		& > span {
 			position: relative;
+			width: auto;
 		}
 		& > span > svg {
 			position: absolute;

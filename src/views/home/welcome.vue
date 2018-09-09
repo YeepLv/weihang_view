@@ -60,7 +60,6 @@ export default {
     swiperSlide
   },
   data () {
-    console.log(this.isMobile)
     return {
       welcomeBgUrl: welcomeBg,
       swiperOption: {
@@ -85,7 +84,6 @@ export default {
     if (document.querySelector('#bg-video')) {
       videojs('bg-video')
     }
-    console.log(this.isMobile)
   },
   methods: {
     viewDetails (type) {

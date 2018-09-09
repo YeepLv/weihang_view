@@ -1,19 +1,19 @@
 <template>
-  <div class="videowrap" @mouseover="maskShow = true" @mouseout="maskShow = true">
+  <div class="videowrap" :class="{'index-wrap': isIndex}" @mouseover="maskShow = true" @mouseout="maskShow = false">
     <div class="video-container" @click.stop="videoShow = true;currentVideoSrc = src">
       <video ref="videoRef" :src="src" v-show="false"></video>
-      <div>
-        <!-- <img src="poster" alt="" style="width: 100%;height: 100%"> -->
+      <div style="height: 100%">
+        <img :src="poster" alt="" style="width: 100%;height: 100%;" :style="{ borderRadius: isIndex ? '190px' : '20px'}">
       </div>
-      <svg class="icon play-btn" :class="{'small-btn': type === 'small'}" v-show="maskShow" aria-hidden="true">
+      <svg v-if="!isMobile" class="icon play-btn" :class="{'small-btn': type === 'small'}" v-show="maskShow" aria-hidden="true">
         <use xlink:href="#icon-bofangjian-hover"></use>
       </svg>
-      <svg class="icon play-btn" :class="{'small-btn': type === 'small'}" v-show="!maskShow" aria-hidden="true">
+      <svg class="icon play-btn" :class="{'small-btn': type === 'small'}" v-show="!maskShow || isMobile" aria-hidden="true">
         <use xlink:href="#icon-bofangjian-moren"></use>
       </svg>
-      <div class="mask" :class="{'small-mask': type === 'small'}" v-show="maskShow" :style="{ borderRadius: isIndex ? '190px' : '20px'}"></div>
+      <div v-if="!isMobile" class="mask" :class="{'small-mask': type === 'small'}" v-show="maskShow" :style="{ borderRadius: isIndex ? '190px' : '20px'}"></div>
     </div>
-    <p v-if="!isMobile" class="video-desc">{{ desc }}</p>
+    <p class="video-desc">{{ desc }}</p>
     <y-video v-if="videoShow" :current-video-src="currentVideoSrc" @close="videoShow = false" :isIndex="isIndex"></y-video>
   </div>
 </template>
@@ -24,38 +24,9 @@ import { mapGetters } from 'vuex'
 export default {
   props: ['src', 'desc', 'isIndex', 'type', 'poster'],
   name: 'YVideowrap',
-  mounted () {
-    const video = this.$refs['videoRef']
-    video.addEventListener('loadeddata', this.captureImage)
-    // const that = this
-    // document.addEventListener('click', function () {
-    //   that.videoShow = false
-    //   that.maskShow = true
-    // })
-  },
-  methods: {
-    captureImage () {
-      const video = this.$refs['videoRef']
-      const canvas = document.createElement('canvas')
-      canvas.width = 460
-      canvas.height = 260
-      canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height)
-
-      var img = document.createElement('img')
-      img.src = canvas.toDataURL('image/png')
-      img.style.width = '100%'
-      img.style.height = '100%'
-      if (this.isIndex) {
-        img.style.borderRadius = '190px'
-      } else {
-        img.style.borderRadius = '20px'
-      }
-      this.$refs['poster'].appendChild(img)
-    }
-  },
   data () {
     return {
-      maskShow: true,
+      maskShow: false,
       videoShow: false,
       currentVideoSrc: ''
     }
@@ -83,6 +54,7 @@ export default {
   height: 260px;
   display: inline-block;
   margin-bottom: 150px;
+  vertical-align: middle;
 
   .video-container {
     position: relative;
@@ -114,10 +86,16 @@ export default {
     width: 100%;
     height: 260px;
     background-image: linear-gradient(-135deg, #0A96F0 0%, #00DCF0 100%);
-    opacity: .7;
+    opacity: .4;
     position: absolute;
     top: 0;
     left: 0;
+  }
+}
+.index-wrap {
+  width: 300px;
+  .play-btn {
+    left: 120px;
   }
 }
 
@@ -127,6 +105,9 @@ export default {
     width: 270px;
     height: 190px;
 
+    .video-container {
+      height: 90px;
+    }
     video {
       width: 270px;
       height: 190px;
@@ -140,6 +121,12 @@ export default {
       height: 40px;
       top: 70px;
       left: 115px;
+    }
+    .video-desc {
+      margin-top: 8px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
     }
   }
   .small-mask {

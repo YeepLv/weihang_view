@@ -5,14 +5,23 @@
     <div class="cases__video">
       <y-videowrap v-if="!isMobile" v-for="(video, idx) in videos" :key="idx" :src="video.path" :poster="video.imageUrl" :desc="video.title" :isIndex="true" style="margin-right: 40px"></y-videowrap>
       <swiper v-if="isMobile" :options="swiperOption">
-        <swiper-slide v-for="(video, idx) in videos" :key="idx" :src="video.path" :desc="video.title" :isIndex="true">
-          <y-videowrap :src="video.path" :desc="video.title" :isIndex="true"></y-videowrap>
+        <swiper-slide v-for="(video, idx) in videos" :key="idx">
+          <div class="video-template" @click.stop="clickVideo(video)">
+            <div class="video-container">
+              <div style="height: 100%">
+                <img :src="video.imageUrl" alt="" style="width: 100%;height: 100%;" :style="{ borderRadius: '190px' }">
+              </div>
+              <svg class="icon play-btn" aria-hidden="true">
+                <use xlink:href="#icon-bofangjian-moren"></use>
+              </svg>
+            </div>
+            <p class="video-desc">{{ video.title }}</p>
+          </div>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
+      <y-video v-if="videoShow && isMobile" :current-video-src="currentVideo.path" @close="videoShow = false"></y-video>
     </div>
-
-    <!-- <y-video v-if="videoShow" :current-video-src="currentVideoSrc" @close="videoShow = false"></y-video> -->
   </div>
 </template>
 
@@ -29,6 +38,7 @@ export default {
       }
     }).then((res) => {
       this.videos = res.body.data.list.slice(0, 3)
+      this.currentVideo = this.videos[0]
     })
   },
   data () {
@@ -41,7 +51,8 @@ export default {
           el: '.swiper-pagination',
           clickable: true
         }
-      }
+      },
+      currentVideo: {}
     }
   },
   components: {
@@ -52,6 +63,12 @@ export default {
     ...mapGetters({
       isMobile: 'isMobile'
     })
+  },
+  methods: {
+    clickVideo (video) {
+      this.currentVideo = video
+      this.videoShow = true
+    }
   }
 }
 </script>
@@ -101,7 +118,43 @@ export default {
     &__video {
       margin-top: 120px;
     }
-
+    .video-template {
+      width: 270px;
+      height: 260px;
+      .video-container {
+        position: relative;
+        height: 190px;
+      }
+      .play-btn {
+        position: absolute;
+        color: #fff;
+        z-index: 2;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        top: 75px;
+        left: 115px;
+      }
+      .video-desc {
+        font-size: 18px;
+        color: #000000;
+        text-align: left;
+        line-height: 32px;
+        margin-top: 8px !important;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      .mask {
+        width: 100%;
+        height: 190px;
+        background-image: linear-gradient(-135deg, #0A96F0 0%, #00DCF0 100%);
+        opacity: .4;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
   }
 
 
@@ -113,6 +166,10 @@ export default {
 
     p {
       margin-top: 20px;
+    }
+    .swiper-slide {
+      display: flex;
+      justify-content: center;
     }
   }
   h2 {
