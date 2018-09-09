@@ -83,7 +83,7 @@
   }
   &__content {
     max-width: 380px;
-
+    margin-left: 89px;
     .title {
       font-family: MicrosoftYaHei;
       font-size: 30px;
@@ -118,6 +118,7 @@
           }
         }
         .m-section__content {
+          margin-left: 0;
           .title {
             margin-bottom: 0.5rem;
           }

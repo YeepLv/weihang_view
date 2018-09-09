@@ -23,16 +23,20 @@
       </div>
       <div v-show="openedIndex === 1">
         <div class="second-page">
-          <div class="article" @click="articleDialogShow = true;currentArticle = article" v-for="(article,idx) in articleArray" :key="idx" :style="!isMobile ? { marginRight: (80 - (idx % 2) * 80) + 'px'} : {}">
-            <div>
-              <img :src="article.articleImage" alt="">
+          <div class="article-contain">
+            <div class="article" @click="articleDialogShow = true;currentArticle = article" v-for="(article,idx) in articleArray" :key="idx" :style="!isMobile ? { marginRight: (80 - (idx % 2) * 80) + 'px'} : {}">
+              <div>
+                <img :src="article.articleImage" alt="">
+              </div>
+              <h4 class="ellipsis">
+                {{ article.title }}
+              </h4>
+              <p class="ellipsis">{{ article.summary }}</p>
+              <span>{{ moment(article.publishTime).format('YYYY-MM-DD') }}</span>
             </div>
-            <h4 class="ellipsis">
-              {{ article.title }}
-            </h4>
-            <p class="ellipsis">{{ article.summary }}</p>
-            <span>{{ moment(article.publishTime).format('YYYY-MM-DD') }}</span>
           </div>
+          <span class="search-more" @click="articleCurrentPage = articleCurrentPage + 1"
+                v-if="articleCurrentPage < articleAllPage">点击查看更多</span>
         </div>
       </div>
       <div v-show="openedIndex === 2">
@@ -48,7 +52,7 @@
             </div>
             <div class="job-list">
               <div v-for="(post, idx) in postArray" @click="postDialogShow = true;currentPost = post" class="post" :key="idx" :style="!isMobile ? { marginRight: (40 - (idx % 2) * 40) + 'px'} : {}" >
-                <div class="tag"></div>
+                <div class="tag" v-if="!isMobile"></div>
                 <div class="job-content">
                   <p style="margin-bottom: 10px;">{{ post.jobName }}</p>
                   <span>{{post.experience}}</span>
@@ -59,6 +63,7 @@
               </div>
             </div>
           </div>
+          <y-pagination :currentpage="currentpage" :allpage="allpage" @changePage="changeJobPage"></y-pagination>
         </div>
       </div>
     </div>
@@ -71,24 +76,6 @@
 import moment from 'moment'
 
 export default {
-  mounted () {
-    this.$http.get('/api/website/article', {
-      params: {
-        pageNo: 1,
-        pageSize: 10
-      }
-    }).then((res) => {
-      this.articleArray = res.body.data.list
-    })
-    this.$http.get('/api/website/job', {
-      params: {
-        pageNo: 1,
-        pageSize: 10
-      }
-    }).then((res) => {
-      this.postArray = res.body.data.list
-    })
-  },
   data () {
     return {
       isMobile: this.$store.state.isMobile,
@@ -102,7 +89,13 @@ export default {
       moment,
       currentType: 0,
       postArray: [],
-      footerType: 2
+      footerType: 2,
+      currentpage: 1,
+      allpage: 1,
+      pagesize: 8,
+      articleCurrentPage: 1,
+      articlePageSize: 8,
+      articleAllPage: 1
     }
   },
   watch: {
@@ -119,11 +112,47 @@ export default {
       } else {
         document.body.style.overflow = 'auto'
       }
+    },
+    currentpage () {
+      this.getJobData()
+    },
+    articleCurrentPage () {
+      this.getArticleData()
     }
+  },
+  created () {
+    this.getArticleData()
+    this.getJobData()
   },
   methods: {
     navClick (idx) {
       this.openedIndex = idx
+    },
+    changeJobPage (page) {
+      this.currentpage = page
+    },
+    getArticleData () {
+      this.$http.get('/api/website/article', {
+        params: {
+          pageNo: this.articleCurrentPage,
+          pageSize: this.articlePageSize
+        }
+      }).then((res) => {
+        const data = res.body.data.list
+        this.articleArray.push(...data)
+        this.articleAllPage = Math.ceil(res.body.data.count / this.articlePageSize)
+      })
+    },
+    getJobData () {
+      this.$http.get('/api/website/job', {
+        params: {
+          pageNo: this.currentpage,
+          pageSize: this.pagesize
+        }
+      }).then((res) => {
+        this.postArray = res.body.data.list
+        this.allpage = Math.ceil(res.body.data.count / this.pagesize)
+      })
     }
   }
 }
@@ -188,6 +217,7 @@ export default {
       background: url(~@/assets/about-bottom.png);
       width:100%;
       height:337px;
+      margin-top: 164px;
     }
     .ellipsis {
       display: -webkit-box;
@@ -204,38 +234,53 @@ export default {
       flex-wrap: wrap;
       cursor: pointer;
       padding-bottom: 120px;
+      display: flex;
+      flex-direction: column;
 
-      .article {
-        margin-bottom: 60px;
-        width: 440px;
-        img {
+      .article-contain {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        .article {
+          margin-bottom: 60px;
           width: 440px;
-          height: 280px;
+          img {
+            width: 440px;
+            height: 280px;
+          }
+          h4 {
+            font-family: $font-family;
+            font-size: 28px;
+            color: #000000;
+            letter-spacing: 0;
+            line-height: 38px;
+            width: 100%;
+          }
+          p {
+            font-family: $font-family;
+            font-size: 16px;
+            color: #333333;
+            letter-spacing: 0;
+            text-align: justify;
+            line-height: 32px;
+            margin-bottom: 30px;
+          }
+          span {
+            font-family: $font-family;
+            font-size: 16px;
+            color: #999999;
+            letter-spacing: 0;
+            line-height: 18px;
+          }
         }
-        h4 {
-          font-family: $font-family;
-          font-size: 28px;
-          color: #000000;
-          letter-spacing: 0;
-          line-height: 38px;
-          width: 100%;
-        }
-        p {
-          font-family: $font-family;
-          font-size: 16px;
-          color: #333333;
-          letter-spacing: 0;
-          text-align: justify;
-          line-height: 32px;
-          margin-bottom: 30px;
-        }
-        span {
-          font-family: $font-family;
-          font-size: 16px;
-          color: #999999;
-          letter-spacing: 0;
-          line-height: 18px;
-        }
+      }
+      .search-more {
+        text-align: center;
+        font-family: SourceHanSansCN-Regular;
+        font-size: 28px;
+        line-height: 28px;
+        color: #333333;
+        letter-spacing: 0;
       }
     }
     .third-page {
@@ -301,6 +346,10 @@ export default {
         line-height: 30px;
         margin-right: 10px;
         cursor: pointer;
+      }
+      .y-pagination {
+        float: right;
+        margin-top: 22px;
       }
     }
   }
@@ -374,7 +423,7 @@ export default {
           .job-contain {
             background: #FFFFFF;
             border: 1px solid #E9E9E9;
-            padding: 1.066667rem 1.166667rem;
+            padding: 0 1.166667rem;
             .job {
               margin-bottom: 1rem;
               span {
@@ -422,11 +471,18 @@ export default {
               }
             }
           }
+          .y-pagination {
+            margin-top: 1.33333332rem;
+          }
         }
         .about-bottom {
           height: 75px;
           background-size: 100%;
+          margin-top: 5.466667rem;
         }
+      }
+      .search-more {
+        font-size: 0.933333rem;
       }
       .current:after {
         width: 3.333333rem;

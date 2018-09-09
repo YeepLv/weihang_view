@@ -23,6 +23,10 @@ module.exports = {
       '/img': {
         target: 'http://121.201.65.88',
         changeOrigin: true
+      },
+      '/video': {
+        target: 'http://121.201.65.88',
+        changeOrigin: true
       }
     },
 

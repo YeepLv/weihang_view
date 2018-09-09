@@ -2,7 +2,7 @@
   <div class="m-page__banner">
     <h2>{{title}}</h2>
     <div class="nav__menu" v-if="showTab">
-      <div class="nav__menu__item" @click="activeNum = 0;$emit('changeTab', 0)" :class="{'active': activeNum === 0}">
+      <div class="nav__menu__item" @click="activeNum = 0" :class="{'active': activeNum === 0}">
         <span>聚焦教育</span>
         <div class="nav__menu__bar">
           <span style="left: 0%"></span>
@@ -10,7 +10,7 @@
           <span style="left: 100%"></span>
         </div>
       </div>
-      <div class="nav__menu__item" @click="activeNum = 1;$emit('changeTab', 1)" :class="{'active': activeNum === 1}">
+      <div class="nav__menu__item" @click="activeNum = 1" :class="{'active': activeNum === 1}">
         <span>聚焦科技</span>
         <div class="nav__menu__bar">
           <span style="left: 0%"></span>
@@ -26,6 +26,17 @@
 export default {
   name: 'YBanner',
   props: ['title', 'showTab'],
+  watch: {
+    '$route' (to, from) {
+      this.activeNum = +to.query.tab || 0
+    },
+    activeNum (val) {
+      this.$emit('changeTab', val)
+    }
+  },
+  mounted () {
+    this.activeNum = +this.$route.query.tab || 0
+  },
   data () {
     return {
       activeNum: 0

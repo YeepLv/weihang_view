@@ -9,7 +9,7 @@
         <span v-if="menu0.url" ><router-link :to="menu0.url">{{menu0.name}}</router-link></span>
         <div class="nav-div" @mouseout="globalShowNav = false" v-show="menu0.showNav && openedIndex === index && globalShowNav">
           <span v-for="(nav, navIdx) in menu0.navs" :key="navIdx" @click="test(navIdx)">
-            {{ nav }}
+            <router-link style="color: black" :to="menu0.url+'?tab='+navIdx">{{nav}}</router-link>
             <hr v-if="navIdx !== menu0.navs.length - 1">
           </span>
         </div>
@@ -35,7 +35,7 @@
           <div class="toggle-div" v-if="activeKey===key && menu.navs">
             <ul>
               <li v-for="(nav, index) in menu.navs">
-                <div v-if="menu.url" class="toggle-list__item" @click="handlerClickToggle(menu, key, true)">
+                <div v-if="menu.url" class="toggle-list__item" @click="handlerClickToggle(menu, key, true, index)">
                   <router-link :to="menu.url">{{nav}}</router-link>
                 </div>
               </li>
@@ -134,12 +134,16 @@
         this.isOpend = !this.isOpend
       },
       // 处理点击跳转
-      handlerClickToggle (menu, key, isNav) {
+      handlerClickToggle (menu, key, isNav, index) {
         if (!isNav) {
           this.activeKey = this.activeKey === key ? null : key
         }
         if (!menu.navs || isNav) {
-          this.$router.push({ path: menu.url })
+          if (isNav) {
+            this.$router.replace({ path: `${menu.url}?tab=${index}` })
+          } else {
+            this.$router.replace({ path: menu.url })
+          }
           this.isOpend = false
         }
       }
