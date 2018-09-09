@@ -27,7 +27,7 @@ export default {
   mounted () {
     const video = this.$refs['videoRef']
     video.addEventListener('loadeddata', this.captureImage)
-    const that = this
+    // const that = this
     // document.addEventListener('click', function () {
     //   that.videoShow = false
     //   that.maskShow = true

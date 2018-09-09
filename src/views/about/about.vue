@@ -125,7 +125,6 @@ export default {
     },
     '$route' (to, from) {
       this.openedIndex = +to.query.tab || 0
-      console.log(this.openedIndex)
     }
   },
   created () {
