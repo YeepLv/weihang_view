@@ -46,17 +46,14 @@ export default {
       this.currentTab = tab
       this.titleClicked = false
 			this.$emit('tabChanged', index)
-			console.log(oldWidth)
 			this.$nextTick(function () {
 				const newWidth = this.$refs['currenttab'].offsetWidth
 				const right = +(this.$refs['currenttabsvg'].style.right).split('px')[0]
-				console.log(right)
 				let newRight = right - (newWidth - oldWidth) / 2
 				if(newRight > -30) {
 					newRight = -30
-				} else {
-					newRight = -31
 				}
+				console.log(newRight)
 				this.$refs['currenttabsvg'].style.right = `${newRight}px`
 			})
     }

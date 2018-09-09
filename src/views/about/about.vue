@@ -118,6 +118,13 @@ export default {
         document.body.style.overflow = 'auto'
       }
     },
+    postDialogShow (val) {
+      if (val) {
+        document.body.style.overflow = 'hidden'
+      } else {
+        document.body.style.overflow = 'auto'
+      }
+    },
     currentpage () {
       this.getJobData()
     },
