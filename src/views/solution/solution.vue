@@ -167,16 +167,16 @@
             <div class="feature-block" style="margin-bottom: 20px;">
               赛事全景录像
             </div>
-            <div class="feature-block" style="margin-right: 25px">
+            <div class="feature-block" style="margin-right: 25px;margin-bottom: 0px;">
               赛事微信分享
             </div>
-            <div class="feature-block" style="margin-right: 25px">
+            <div class="feature-block" style="margin-right: 25px;margin-bottom: 0px;">
               移动端手机观看
             </div>
-            <div class="feature-block">
+            <div class="feature-block" style="margin-bottom: 0px;">
               赛事运营支撑服务
             </div>
-            <div style="clear:both"></div>
+            <div style="clear:both;margin-bottom: 0px;"></div>
           </div>
           <div v-if="isMobile" class="feature-container">
             <div class="feature-block">
@@ -200,7 +200,7 @@
             <div class="feature-block">
               赛事运营支撑服务
             </div>
-            <div style="clear:both"></div>
+            <div style="clear:both;margin-bottom: 0px;"></div>
           </div>
         </div>
         <div v-show="openedIndex1 === 6">
@@ -463,6 +463,7 @@ export default {
     margin-left:auto;
     margin-right:auto;
     margin-top: 40px;
+    margin-bottom: 0px !important;
   }
   .feature-block {
     background-image: linear-gradient(-135deg, #0A96F0 0%, #00DCF0 100%);
@@ -531,9 +532,10 @@ export default {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
 
       .feature-block {
-        width: 49%;
+        width: 48%;
       }
     }
   }

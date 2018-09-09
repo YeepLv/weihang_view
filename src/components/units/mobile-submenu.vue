@@ -3,7 +3,8 @@
 <template>
 	<div class="mobile-submenu">
 		<div class="mobile-submenu__title" @click.stop="titleClicked = !titleClicked">
-			<span>{{currentTab}}
+			<span>
+				<span>{{currentTab}}</span>
 				<svg class="icon" aria-hidden="true">
 					<use xlink:href="#icon-xiala"></use>
 				</svg>
@@ -18,7 +19,7 @@
 <script>
 export default {
   name: 'YMobileSubmenu',
-  props: ['tabList'],
+  props: ['tabList', 'tabIndex'],
   data () {
     return {
       titleClicked: false,
@@ -27,12 +28,17 @@ export default {
     }
   },
   mounted () {
-    this.currentTab = this.tabList[0]
+    this.currentTab = this.tabList[this.tabIndex || 0]
     const that = this
     document.addEventListener('click', function () {
       that.titleClicked = false
     })
-  },
+	},
+	watch: {
+		tabIndex () {
+			this.currentTab = this.tabList[this.tabIndex || 0]
+		}
+	},
   methods: {
     clickTab (tab, index) {
       this.chosenIndex = index

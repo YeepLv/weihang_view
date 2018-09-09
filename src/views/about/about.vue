@@ -2,11 +2,12 @@
   <div class="pAbout">
     <y-menu :opened-index="5" :isIndex="false" class="menu" @navClick="navClick"></y-menu>
     <y-banner ref="banner" title="关于玮航" class="product-banner" :showTab="false"></y-banner>
-    <div class="sub-menu">
+    <div class="sub-menu" v-if="!isMobile">
       <span class="menu__text" @click="openedIndex = index" :class="{ 'current': index === openedIndex }" v-for="(tab, index) in tabArray" :key="tab">
         {{ tab }}
       </span>
     </div>
+    <y-mobile-submenu v-if="isMobile" :tab-list="tabArray" @tabChanged="tabChanged" :tab-index="openedIndex"></y-mobile-submenu>
     <div class="article-contain">
       <div v-show="openedIndex === 0">
         <div class="first-page">
@@ -135,10 +136,14 @@ export default {
   },
   mounted () {
     this.openedIndex = +this.$route.query.tab || 0
+    console.log(this.openedIndex)
   },
   methods: {
     navClick (idx) {
       this.openedIndex = idx
+    },
+    tabChanged (val) {
+      this.openedIndex = val
     },
     changeJobPage (page) {
       this.currentpage = page
