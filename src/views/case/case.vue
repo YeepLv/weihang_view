@@ -368,7 +368,7 @@ export default {
           }
           p {
             font-family: MicrosoftYaHei;
-            font-size: 0.666667rem;
+            font-size: 0.85rem;
             color: #000000;
             line-height: 1.2rem;
           }
