@@ -3,8 +3,8 @@
     <div ref="postContent" class="article-content">
       <h2>{{ post.jobName }}</h2>
       <p>{{ post.experience }}</p>
-      <p class="time">{{ moment(post.updateTime).format('YYYY-MM-DD') }}</p>
-      <div v-html="post.desc">
+      <!--<p class="time">{{ moment(post.updateTime).format('YYYY-MM-DD') }}</p>-->
+      <div v-html="post.desc" class="article-desc">
       </div>
       <div class="close-btn" @click="closeDialog">
         X
@@ -51,6 +51,18 @@ export default {
       margin-left: auto;
       margin-right: auto;
       padding: 60px;
+      h2 {
+        margin-bottom: 25px;
+      }
+      p {
+        margin-bottom: 40px;
+      }
+      .article-desc {
+        font-family: SourceHanSansCN-Light;
+        font-size: 16px;
+        color: #333333;
+        letter-spacing: 0.61px;
+      }
     }
     .close-btn {
       width: 65px;
@@ -98,6 +110,15 @@ export default {
         width: 100%;
         height: 100%;
         padding: 2.666667rem 1rem;
+        p {
+          margin-bottom: 1.333333rem;
+        }
+        .article-desc {
+          font-family: SourceHanSansCN-Light;
+          font-size: 0.533333rem;
+          color: #333333;
+          letter-spacing: 0.61px;
+        }
         .close-btn {
           top: -3rem;
           right: 0;
