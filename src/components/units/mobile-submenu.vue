@@ -4,8 +4,8 @@
 	<div class="mobile-submenu">
 		<div class="mobile-submenu__title" @click.stop="titleClicked = !titleClicked">
 			<span>
-				<span>{{currentTab}}</span>
-				<svg class="icon" aria-hidden="true">
+				<span ref="currenttab">{{currentTab}}</span>
+				<svg ref="currenttabsvg" class="icon" aria-hidden="true" style="right: -30px;">
 					<use xlink:href="#icon-xiala"></use>
 				</svg>
 			</span>
@@ -41,10 +41,22 @@ export default {
   },
   methods: {
     clickTab (tab, index) {
+			const oldWidth = this.$refs['currenttab'].offsetWidth
       this.chosenIndex = index
       this.currentTab = tab
       this.titleClicked = false
-      this.$emit('tabChanged', index)
+			this.$emit('tabChanged', index)
+			console.log(oldWidth)
+			this.$nextTick(function () {
+				const newWidth = this.$refs['currenttab'].offsetWidth
+				const right = +(this.$refs['currenttabsvg'].style.right).split('px')[0]
+				console.log(right)
+				let newRight = right - (newWidth - oldWidth) / 2
+				if(newRight > -30) {
+					newRight = -30
+				}
+				this.$refs['currenttabsvg'].style.right = `-30px`
+			})
     }
   }
 }
@@ -67,10 +79,13 @@ export default {
 		& > span {
 			position: relative;
 			width: auto;
+
+			& > span {
+				display: inline-block;
+			}
 		}
 		& > span > svg {
 			position: absolute;
-			right: -30px;
 			width: 25px;
 			height: 25px;
 			top: -1px;

@@ -385,6 +385,7 @@ export default {
     width:960px;
     margin-left:auto;
     margin-right:auto;
+    margin-bottom: 0px !important;
   }
   .content-container {
     padding-bottom: 60px;
@@ -434,6 +435,7 @@ export default {
     width: 960px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 0px !important;
 
     .text-container {
       width: 440px;

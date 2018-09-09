@@ -135,7 +135,6 @@ export default {
   },
   mounted () {
     this.openedIndex = +this.$route.query.tab || 0
-    console.log(this.openedIndex)
   },
   methods: {
     navClick (idx) {
@@ -310,7 +309,6 @@ export default {
       }
       .search-more {
         text-align: center;
-        font-family: SourceHanSansCN-Regular;
         font-size: 28px;
         line-height: 28px;
         color: #333333;
@@ -414,7 +412,6 @@ export default {
         .menu__text {
           margin-right: 0;
           font-size: 0.666667rem;
-          font-family: MicrosoftYaHei;
           color: #000000;
           text-align: center;
         }
@@ -456,7 +453,6 @@ export default {
           padding: 0 1.5rem;
           h1 {
             font-size: 2rem;
-            font-family: MicrosoftYaHei;
             color: #000000;
             letter-spacing: 1.72px;
             text-align: center;
@@ -485,13 +481,11 @@ export default {
                 height: 4.633333rem;;
                 .job-content {
                   p {
-                    font-family: MicrosoftYaHei;
                     font-size: 1.133333rem;
                     color: #333333;
                     letter-spacing: 0.97px;
                   }
                   span {
-                    font-family: MicrosoftYaHei;
                     font-size: 0.666667rem;
                     color: #333333;
                     letter-spacing: 0.57px;
@@ -500,7 +494,6 @@ export default {
                 .button {
                   background: #0A96F0;
                   border-radius: 30px;
-                  font-family: MicrosoftYaHei;
                   font-size: 0.666667rem;
                   color: #FFFFFF;
                   letter-spacing: 0.57px;
