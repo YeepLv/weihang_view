@@ -141,7 +141,7 @@
                 <h3>专业的师资培训</h3>
                 <p>以华东师范大学心理学、教育学等教授为首组成生涯专家团队，以线上融合线下的服务模式，为高中提供全方位的生涯师资培训服务</p>
               </div>
-              <div style="clear:both"></div>
+              <div style="clear:both;margin-bottom: 0px;"></div>
             </div>
           </div>
         </div>

@@ -145,7 +145,7 @@ export default {
   overflow: hidden;
   top: 80px;
   font-size: $font-size-content;
-  min-height: 1000px;
+  min-height: 800px;
   .solution__detail {
     a {
       opacity: 0;
@@ -192,12 +192,13 @@ export default {
     top: 0;
     left: 0;
     height: 100%;
+    width: 100%;
   }
   &__wrap {
     text-align: center;
     position: relative;
     z-index: 10;
-    top: 220px;
+    top: 80px;
   }
   &__block {
     cursor: pointer;

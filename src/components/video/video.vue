@@ -1,7 +1,7 @@
 <template>
   <div class="y-video">
     <div class="content" @click="$emit('close')"></div>
-    <video-player class="vjs-custom-skin vjs-big-play-centered video-player" :style="{transform: (isIndex && isMobile) ? 'none' : 'translate(0, 50%)'}" :options="playerOptions"></video-player>
+    <video-player @click.stop class="vjs-custom-skin vjs-big-play-centered video-player" :style="{transform: (isIndex && isMobile) ? 'none' : 'translate(0, 50%)'}" :options="playerOptions"></video-player>
   </div>
 </template>
 

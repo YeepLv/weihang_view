@@ -32,10 +32,8 @@
                 </div>
               </swiper-slide>
               <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
-              <div v-if="!isMobile">
-                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-              </div>
+              <div v-if="!isMobile" class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+              <div v-if="!isMobile" class="swiper-button-next swiper-button-white" slot="button-next"></div>
             </swiper>
           </div>
         </div>
@@ -62,10 +60,8 @@
                 </div>
               </swiper-slide>
               <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
-              <div v-if="!isMobile">
-                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-              </div>
+              <div v-if="!isMobile" class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+              <div v-if="!isMobile" class="swiper-button-next swiper-button-white" slot="button-next"></div>
             </swiper>
           </div>
         </div>
@@ -87,10 +83,8 @@
                 </div>
               </swiper-slide>
               <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
-              <div v-if="!isMobile">
-                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-              </div>
+              <div v-if="!isMobile" class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+              <div v-if="!isMobile" class="swiper-button-next swiper-button-white" slot="button-next"></div>
             </swiper>
           </div>
         </div>
@@ -122,10 +116,8 @@
                 </div>
               </swiper-slide>
               <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
-              <div v-if="!isMobile">
-                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-              </div>
+              <div v-if="!isMobile" class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+              <div v-if="!isMobile" class="swiper-button-next swiper-button-white" slot="button-next"></div>
             </swiper>
           </div>
         </div>
@@ -152,10 +144,8 @@
                 </div>
               </swiper-slide>
               <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
-              <div v-if="!isMobile">
-                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-              </div>
+              <div v-if="!isMobile" class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+              <div v-if="!isMobile" class="swiper-button-next swiper-button-white" slot="button-next"></div>
             </swiper>
           </div>
         </div>
@@ -182,10 +172,8 @@
                 </div>
               </swiper-slide>
               <div v-if="isMobile" class="swiper-pagination" slot="pagination"></div>
-              <div v-if="!isMobile">
-                <div class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
-                <div class="swiper-button-next swiper-button-white" slot="button-next"></div>
-              </div>
+              <div v-if="!isMobile" class="swiper-button-prev swiper-button-white" slot="button-prev"></div>
+              <div v-if="!isMobile" class="swiper-button-next swiper-button-white" slot="button-next"></div>
             </swiper>
           </div>
         </div>
@@ -197,7 +185,7 @@
             <p>尽管今日科技普及，教育资源仍属稀缺。2017年度惠州乡村小学教师培训班在惠州市惠城区开训，玮航教育为本届培训班提供VR全景视频直播服务，360°视觉彻底将本培训班的教室大门向全惠州的教室人群开放，真正实现将培训班上精彩内容实时实地传授给未能到场参与培训的教室，也进一步打破了空间给乡村教育培训带来的局限性，让培训班外的老师们通过高清4目摄像头即可再现学习场景，还原培训班的每处细节。</p>
           </div>
           <div class="right">
-            <div class="swiper-img">
+            <div class="swiper-img single-img">
               <img src="@/assets/case-15.png" alt="">
             </div>
           </div>
@@ -208,7 +196,7 @@
             <p>为共叙亲情乡谊、为共商融合发展、为共话民生福祉，第九届海峡论坛将于2017年6月17-18日在厦门隆重召开。论坛活动期间，玮航教育为本次论坛大会提供VR全景视频直播服务，凭借着出众的全景视频软硬件技术能力，竭尽全力为本次论坛的观众提供了一场无以伦比的VR全景视频视觉盛宴。</p>
           </div>
           <div class="right">
-            <div class="swiper-img">
+            <div class="swiper-img single-img">
               <img src="@/assets/case-16.png" alt="">
             </div>
           </div>
@@ -219,7 +207,7 @@
             <p>应急指挥调度平台——是为厦门金砖会议重大活动提供安全保障的项目。搭建无线图传系统平台，通过智能单兵APP、车载无线图传设备及4G执法记录仪，以实现随车全程影像监控传输系统及4G执法记录仪实时回传监控现场影像，指挥中心可依影像和卫星定位信号及数据及时作部署和调度，使得相关人员可以随时掌控现场动态，为处理各类突发事件提供实战支持。</p>
           </div>
           <div class="right">
-            <div class="swiper-img">
+            <div class="swiper-img single-img">
               <img src="@/assets/case-17.png" alt="">
             </div>
           </div>
@@ -332,6 +320,11 @@ export default {
       display: flex;
       align-items: center;
       height: 300px;
+    }
+  }
+  #pc{
+    .single-img:hover {
+      transform: scale(1.2, 1.2);
     }
     .swiper-container:hover {
       transform: scale(1.2, 1.2);

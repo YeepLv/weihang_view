@@ -28,10 +28,10 @@ export default {
     const video = this.$refs['videoRef']
     video.addEventListener('loadeddata', this.captureImage)
     const that = this
-    document.addEventListener('click', function () {
-      that.videoShow = false
-      that.maskShow = true
-    })
+    // document.addEventListener('click', function () {
+    //   that.videoShow = false
+    //   that.maskShow = true
+    // })
   },
   methods: {
     captureImage () {

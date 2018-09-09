@@ -127,7 +127,7 @@ export default {
 #home-welcome {
   /*min-width: 1200px;*/
   position: relative;
-  max-height: 100vh;
+  max-height: 1000px;
   overflow: hidden;
   width: 100%;
   top: 80px;
