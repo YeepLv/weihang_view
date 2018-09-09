@@ -66,14 +66,12 @@ export default {
       cursor: pointer;
     }
     h2 {
-      font-family: SourceHanSansCN-Regular;
       font-size: 28px;
       color: #000000;
       letter-spacing: 0;
       line-height: 42px;
     }
     .time {
-      font-family: SourceHanSansCN-Light;
       font-size: 14px;
       color: #666666;
       letter-spacing: 0.53px;
@@ -81,7 +79,6 @@ export default {
       margin-bottom: 30px;
     }
     .content {
-      font-family: SourceHanSansCN-Regular;
       font-size: 16px;
       color: #000000;
       letter-spacing: 0;
