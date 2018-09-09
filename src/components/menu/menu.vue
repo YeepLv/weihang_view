@@ -8,8 +8,8 @@
       <span class="y-menu__text" @mouseover="changeState(index)" :class="{ 'current': (index === openedIndex && isIndex), 'current-white': (index === openedIndex && !isIndex), 'first-text': openedIndex === 0, 'color-white': !isIndex }" v-for="(menu0, index) in menus" :key="index">
         <span v-if="menu0.url" ><router-link :to="menu0.url">{{menu0.name}}</router-link></span>
         <div class="nav-div" @mouseout="globalShowNav = false" v-show="menu0.showNav && openedIndex === index && globalShowNav">
-          <span v-for="(nav, navIdx) in menu0.navs" :key="navIdx" @click="test(navIdx)">
-            <router-link style="color: black" :to="menu0.url+'?tab='+navIdx">{{nav}}</router-link>
+          <span v-for="(nav, navIdx) in menu0.navs" :key="navIdx" @click="test(menu0, navIdx)">
+            <router-link style="color: black" :to="menu0.url">{{nav}}</router-link>
             <hr v-if="navIdx !== menu0.navs.length - 1">
           </span>
         </div>
@@ -70,7 +70,8 @@
       }
     },
     methods: {
-      test (navIdx) {
+      test (menu, navIdx) {
+        this.$router.replace({ path: `${menu.url}?tab=${navIdx}` })
         this.$emit('navClick', navIdx)
       },
       /**
@@ -141,6 +142,7 @@
         if (!menu.navs || isNav) {
           if (isNav) {
             this.$router.replace({ path: `${menu.url}?tab=${index}` })
+            this.$emit('navClick', index)
           } else {
             this.$router.replace({ path: menu.url })
           }

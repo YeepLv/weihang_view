@@ -122,12 +122,19 @@ export default {
     },
     articleCurrentPage () {
       this.getArticleData()
+    },
+    '$route' (to, from) {
+      this.openedIndex = +to.query.tab || 0
+      console.log(this.openedIndex)
     }
   },
   created () {
     this.getArticleData()
     this.getJobData()
     this.getTagData()
+  },
+  mounted () {
+    this.openedIndex = +this.$route.query.tab || 0
   },
   methods: {
     navClick (idx) {
