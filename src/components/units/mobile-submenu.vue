@@ -54,6 +54,8 @@ export default {
 				let newRight = right - (newWidth - oldWidth) / 2
 				if(newRight > -30) {
 					newRight = -30
+				} else {
+					newRight = -31
 				}
 				this.$refs['currenttabsvg'].style.right = `${newRight}px`
 			})
