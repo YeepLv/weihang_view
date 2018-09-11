@@ -111,6 +111,7 @@ export default {
         padding: 2.666667rem 1rem;
         .article-contain {
           overflow-y: auto;
+          height: 100%;
           .a-content {
             height: 75%;
             overflow-y: unset;
