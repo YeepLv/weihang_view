@@ -41,21 +41,21 @@ export default {
   },
   methods: {
     clickTab (tab, index) {
-			const oldWidth = this.$refs['currenttab'].offsetWidth
+      const oldWidth = this.$refs['currenttab'].offsetWidth
       this.chosenIndex = index
       this.currentTab = tab
       this.titleClicked = false
-			this.$emit('tabChanged', index)
-			this.$nextTick(function () {
-				const newWidth = this.$refs['currenttab'].offsetWidth
-				const right = +(this.$refs['currenttabsvg'].style.right).split('px')[0]
-				let newRight = right - (newWidth - oldWidth) / 2
-				if(newRight > -30) {
-					newRight = -30
-				}
-				console.log(newRight)
-				this.$refs['currenttabsvg'].style.right = `${newRight}px`
-			})
+      this.$emit('tabChanged', index)
+      this.$nextTick(function () {
+        const newWidth = this.$refs['currenttab'].offsetWidth
+        const right = +(this.$refs['currenttabsvg'].style.right).split('px')[0]
+        let newRight = right - (newWidth - oldWidth) / 2
+        if (newRight > -30) {
+          newRight = -30
+        }
+        console.log(newRight)
+        this.$refs['currenttabsvg'].style.right = `${newRight}px`
+      })
     }
   }
 }

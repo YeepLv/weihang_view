@@ -481,21 +481,24 @@ export default {
             .job-list {
               margin-top: 0;
               .post {
+                padding: 1.066667rem 0.333333rem 1.066667rem 0;
                 border: none;
                 border-bottom: 1px solid #E9E9E9;;
                 width: 100%;
-                padding-right: 10px;
-                height: 4.633333rem;;
+                /*height: 4.633333rem;*/
                 .job-content {
+                  display: grid;
                   p {
                     font-size: 1.133333rem;
                     color: #333333;
                     letter-spacing: 0.97px;
+                    font-family: MicrosoftYaHei;
                   }
                   span {
                     font-size: 0.666667rem;
                     color: #333333;
                     letter-spacing: 0.57px;
+                    font-family: MicrosoftYaHei;
                   }
                 }
                 .button {

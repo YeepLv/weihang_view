@@ -1,9 +1,11 @@
 <template>
   <div id="yarticle" class="y-article" @touchmove.prevent>
     <div ref="articelContent" class="article-content">
-      <h2>{{ article.title }}</h2>
-      <p class="time">{{ moment(article.publishTime).format('YYYY-MM-DD') }}</p>
-      <div class="a-content" v-html="article.content">
+      <div class="article-contain">
+        <h2>{{ article.title }}</h2>
+        <p class="time">{{ moment(article.publishTime).format('YYYY-MM-DD') }}</p>
+        <div class="a-content" v-html="article.content">
+        </div>
       </div>
       <div class="close-btn" @click="closeDialog">
         X
@@ -107,15 +109,19 @@ export default {
         width: 100%;
         height: 100%;
         padding: 2.666667rem 1rem;
+        .article-contain {
+          overflow-y: auto;
+          .a-content {
+            height: 75%;
+            overflow-y: unset;
+          }
+        }
         .close-btn {
           top: -3rem;
           right: 0;
           width: 3rem;
           height: 3rem;
           line-height: 46px;
-        }
-        .a-content {
-          height: 75%;
         }
       }
     }
