@@ -1,5 +1,5 @@
 <template>
-  <div id="yarticle" class="y-article" @touchmove.prevent>
+  <div id="yarticle" class="y-article">
     <div ref="articelContent" class="article-content">
       <div class="article-contain">
         <h2>{{ article.title }}</h2>
@@ -86,6 +86,9 @@ export default {
       letter-spacing: 0;
       line-height: 32px;
     }
+    .article-contain {
+      height: 100%;
+    }
     .a-content {
       height: 85%;
       overflow-y: auto;
@@ -99,7 +102,7 @@ export default {
   }
   #mobile {
     #yarticle {
-      padding: 6.133333rem 1.5rem;
+      padding: 6.133333rem 1.5rem 1rem;
       background-color: rgba(0,0,0,.8);
       p {
         margin: 1rem 0;
