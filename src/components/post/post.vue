@@ -46,7 +46,7 @@ export default {
       top: 90px;
       z-index: 10;
       width: 800px;
-      height: 800px;
+      height: 80vh;
       background: #fff;
       margin-left: auto;
       margin-right: auto;

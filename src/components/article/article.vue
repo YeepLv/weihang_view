@@ -47,7 +47,7 @@ export default {
       top: 90px;
       z-index: 10;
       width: 800px;
-      height: 800px;
+      height: 80vh;
       background: #fff;
       margin-left: auto;
       margin-right: auto;
@@ -90,13 +90,13 @@ export default {
       height: 100%;
     }
     .a-content {
-      height: 85%;
+      height: 78%;
       overflow-y: auto;
       p {
         line-height: 24px;
       }
       img {
-        width: 100%;
+        max-width: 100%;
       }
     }
   }

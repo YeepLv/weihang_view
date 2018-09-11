@@ -58,7 +58,7 @@ export default {
     width: 960px;
     left: 50%;
     top: 50%;
-    transform: translate(0, 50%);
+    transform: translate(0, 10%);
     margin-left: auto;
     margin-right: auto;
     z-index: 10001;

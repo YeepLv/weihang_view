@@ -78,7 +78,7 @@ export default {
   .video-desc {
     font-size: 18px;
     color: #000000;
-    text-align: left;
+    text-align: center;
     margin-top: 30px;
     line-height: 32px;
   }
