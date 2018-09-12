@@ -138,7 +138,7 @@ export default {
       .video-desc {
         font-size: 18px;
         color: #000000;
-        text-align: left;
+        text-align: center;
         line-height: 32px;
         margin-top: 8px !important;
         text-overflow: ellipsis;
