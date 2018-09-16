@@ -34,6 +34,10 @@
         </div>
         <div class="y-footer__lower">
           <p>Copyright &copy;2015-2018 深圳市玮航教育科技有限公司 &nbsp;&nbsp;&nbsp; <a v-if="!isMobile" target="_blank" href="http://www.miitbeian.gov.cn">粤ICP备18101917号</a></p>
+          <p style="margin-bottom: 0px;">
+            <img style="float: none;vertical-align: middle" src="@/assets/ba.jpg" alt="">
+            粤公网安备 44030502003015号
+          </p>
         </div>
       </div>
       <!-- <div class="y-footer__copy" v-if="isMobile">
@@ -180,7 +184,6 @@
     }
     p {
       line-height: 1.333333rem;
-      margin-bottom: 1.333333rem;
     }
     &__copy {
       p {

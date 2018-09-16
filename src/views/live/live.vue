@@ -3,7 +3,8 @@
     <y-menu :opened-index="3" :isIndex="true" class="menu"></y-menu>
     <div class="live-outer">
       <div class="live-container" v-show="!liveIsOk">
-        当前暂无直播，您可以先观看下方历史直播
+        <!-- 当前暂无直播，您可以先观看下方历史直播 -->
+        <img :src="liveImg" alt="">
       </div>
       <div class="live-stream" v-show="liveIsOk">
         <!-- <video ref="liveStream" src="http://121.201.65.88:9080/app/80b6977a6f024dd1b1035f1bfef3e3c4_2.m3u8"></video>
@@ -46,10 +47,11 @@ export default {
     }).then((res) => {
       this.videos = res.body.data.list
     })
-    // console.log(this.$refs['liveStream'].error)
-    // if (this.$refs['liveStream'].networkState !== 3) {
-    //   this.liveIsOk = true
-    // }
+    this.$http.get('/api/website/liveConfig').then((res) => {
+      this.liveImg = res.body.data.imageUrl
+      this.pcPlayerOptions.sources[0].src = res.body.data.http
+      console.log(res.body.data)
+    })
   },
   computed: {
     ...mapGetters({
@@ -76,8 +78,9 @@ export default {
         },
         flash: {hls: { withCredentials: false }},
         html5: {hls: { withCredentials: false }},
-        poster: welcomeBg
-      }
+        poster: welcomeBg,
+      },
+      liveImg: ''
     }
   },
   methods: {
@@ -113,6 +116,10 @@ export default {
     font-size: 24px;
     color: #FFFFFF;
     text-align: center;
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   .histroy {
