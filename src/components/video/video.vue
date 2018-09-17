@@ -22,7 +22,7 @@ export default {
       playerOptions: {
         // videojs options
         width: (document.body.clientWidth < 1024) ? document.body.clientWidth : 960,
-        muted: true,
+        muted: false,
         language: 'en',
         playbackRates: [0.7, 1.0, 1.5, 2.0],
         // poster: "/static/banner0.png",
