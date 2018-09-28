@@ -36,7 +36,7 @@ export default {
       bgScaleMax: 1.05,
       secsMap: {
         finance: {
-          url: '/solution/finance',
+          url: '/solution?tab=0',
           bgUrl: bgFinance,
           name: 'finance',
           icon: '#icon-jujiaojiaoyu',
@@ -45,7 +45,7 @@ export default {
           logoUrls: []
         },
         service: {
-          url: '/solution/service',
+          url: '/solution?tab=1',
           bgUrl: bgService,
           name: 'service',
           icon: '#icon-jujiaokeji',
