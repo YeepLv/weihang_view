@@ -290,7 +290,7 @@ export default {
           }
           h4 {
             font-family: $font-family;
-            font-size: 28px;
+            font-size: 22px;
             color: #000000;
             letter-spacing: 0;
             line-height: 38px;

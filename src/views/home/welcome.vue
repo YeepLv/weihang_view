@@ -14,7 +14,7 @@
       </swiper-slide>
       <swiper-slide>
         <img src="@/assets/banner5.gif" style="height: 100%;width: 100%">
-        <div class="welcome-desc" :style="{top: isMobile ? '50%' : '30%'}">
+        <div class="welcome-desc" :style="{top: isMobile ? '50%' : '40%'}">
           <h2>玮航教育五朵云解决方案</h2>
           <h3>教育信息化的基础配套、应用方法、创新模式，“五朵云”里都有你想要的</h3>
           <a href="javascript:void(0)" class="u-btn__white" @click="viewDetails('wdy')">查看详情</a>

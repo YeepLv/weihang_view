@@ -46,15 +46,20 @@
     word-break: break-word;
     max-width: 450px;
   }
+  .feature {
+    padding-left: 10px;
+    position: relative;
+  }
   .feature:before {
     content: '';
     background: #0A96F0;
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    margin-bottom: 2px;
     display: inline-block;
-    margin-right: 8px;
+    position: absolute;
+    left: -3px;
+    top: 15px;
   }
   &__wrap {
     // height: 70vh;
