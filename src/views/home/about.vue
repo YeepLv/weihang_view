@@ -4,16 +4,28 @@
       <div class="about__desc">
         <h2>部分合作学校</h2>
         <p>玮航教育的主要用户包括教育局、学校、教育机构、事业单位等，提供一系列定制化服务</p>
-        <img src="@/assets/about-school.jpg" style="margin-top: 40px;">
+        <div class="about__partner">
+          <div class="logo" v-for="(partner, index) in partners" :key="index">
+            <img :src="partner.imageUrl" alt="">
+            <p>{{ partner.name }}</p>
+          </div>
+        </div>
+        <!-- <img src="@/assets/about-school.jpg" style="margin-top: 40px;"> -->
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
+  mounted () {
+    this.$http.get('/api/website/partner').then((res) => {
+      this.partners = res.body.data.list
+    })
+  },
   data () {
     return {
-      isMobile: this.$store.state.isMobile
+      isMobile: this.$store.state.isMobile,
+      partners: []
     }
   }
 }
@@ -53,6 +65,33 @@ export default {
     }
   }
 
+  &__partner {
+    width: 960px;
+    min-height: 460px;
+    background: #fff;
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 0px;
+    align-content: flex-start;
+
+    .logo {
+      width: 20%;
+      height: 120px;
+      margin-bottom: 20px;
+    }
+    img {
+      width: 96px;
+      height: 96px;
+    }
+    p {
+      margin-top: -10px;
+      text-align: center;
+      font-weight: bold;
+      color: #000;
+    }
+  }
+
   &__wrap {
     width: 960px;
     text-align: center;
@@ -81,6 +120,24 @@ export default {
     img {
       width: 100%;
       height: 100%;
+    }
+
+    &__partner {
+      width: 100%;
+      min-height: 460px;
+
+      .logo {
+        height: 60px;
+        margin-bottom: 10px;
+      }
+      img {
+        width: 36px;
+        height: 36px;
+      }
+      p {
+        font-size: .6rem;
+        margin-top: -6px;
+      }
     }
   }
 }

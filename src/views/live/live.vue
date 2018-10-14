@@ -50,7 +50,6 @@ export default {
     this.$http.get('/api/website/liveConfig').then((res) => {
       this.liveImg = res.body.data.imageUrl
       this.pcPlayerOptions.sources[0].src = res.body.data.http
-      console.log(res.body.data)
     })
   },
   computed: {
