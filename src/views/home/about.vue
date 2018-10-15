@@ -67,7 +67,7 @@ export default {
 
   &__partner {
     width: 960px;
-    min-height: 460px;
+    min-height: 140px;
     background: #fff;
     margin-top: 40px;
     display: flex;
@@ -85,7 +85,6 @@ export default {
       height: 96px;
     }
     p {
-      margin-top: -10px;
       text-align: center;
       font-weight: bold;
       color: #000;
@@ -124,7 +123,7 @@ export default {
 
     &__partner {
       width: 100%;
-      min-height: 460px;
+      min-height: 140px;
 
       .logo {
         height: 60px;
@@ -136,7 +135,6 @@ export default {
       }
       p {
         font-size: .6rem;
-        margin-top: -6px;
       }
     }
   }
