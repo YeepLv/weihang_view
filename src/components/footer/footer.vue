@@ -3,12 +3,13 @@
     <div class="y-footer__wrap f-content__wrap">
       <div class="y-footer__about">
         <div class="y-footer__upper">
+          <span style="float: left;color: #fff;margin-top: 3px;">商业合作：</span>
           <ul>
             <li>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-footer-dianhua"></use>
               </svg>
-              0755-26656317
+              0755-26656317（周一到周五9:00-18:00）
             </li>
             <!-- <li>
               <svg class="icon" aria-hidden="true">
@@ -22,14 +23,16 @@
               </svg>
               whggyx@weihangtx.com
             </li>
-            <li>
+            <!-- <li>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-footer-dizhi"></use>
               </svg>
               深圳市南山区讯美科技广场1号楼6215
-            </li>
+            </li> -->
           </ul>
+          <span v-if="isMobile" style="float: left;width:100%;text-align:left;color: #fff;line-height: 24px">关注我们：</span>
           <img src="@/assets/qcode.png" alt="">
+          <span v-if="!isMobile" style="float: right;color: #fff;line-height: 106px">关注我们：</span>
           <div style="clear:both"></div>
         </div>
         <div class="y-footer__lower">
