@@ -3,8 +3,8 @@
     <div class="y-footer__wrap f-content__wrap">
       <div class="y-footer__about">
         <div class="y-footer__upper">
-          <span style="float: left;color: #fff;margin-top: 3px;">商业合作：</span>
-          <ul>
+          <span :style="{ 'float': 'left', 'color': '#fff', 'margin-top': '3px', 'line-height': isMobile ? '1' : '107px'}">商业合作：</span>
+          <ul :style="{'padding-top': isMobile ? '0px' : '30px'}">
             <li>
               <svg class="icon" aria-hidden="true">
                 <use xlink:href="#icon-footer-dianhua"></use>
